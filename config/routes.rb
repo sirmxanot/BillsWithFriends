@@ -13,8 +13,9 @@ BillsWithFriends::Application.routes.draw do
 
   resources :expenses
 
-
   root :to => "home#index"
+
+  match 'expenses/new' => 'expenses#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
