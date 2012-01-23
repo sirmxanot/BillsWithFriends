@@ -1,4 +1,8 @@
 BillsWithFriends::Application.routes.draw do
+  devise_for :users
+
+  resources :users
+
   resources :registers
 
   resources :i_paid_yous
@@ -9,7 +13,8 @@ BillsWithFriends::Application.routes.draw do
 
   resources :expenses
 
-  resources :people
+
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

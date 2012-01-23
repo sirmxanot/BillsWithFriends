@@ -57,4 +57,7 @@ BillsWithFriends::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # recommended for Devise to work with Heroku
+  config.assets.initialize_on_precompile = false
 end
