@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  creditor_id: 1
+  debtor_id: 1
+  credit_extended: 1
+  updated_at: 2012-01-23 12:08:11
+
+two:
+  id: 1
+  creditor_id: 1
+  debtor_id: 1
+  credit_extended: 1
+  updated_at: 2012-01-23 12:08:11

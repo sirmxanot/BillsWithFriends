@@ -1,0 +1,33 @@
+<h1>Listing i_paid_yous</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Payment</th>
+    <th>Created at</th>
+    <th>Amount</th>
+    <th>Payer</th>
+    <th>Receiver</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @i_paid_yous.each do |i_paid_you| %>
+  <tr>
+    <td><%= i_paid_you.id %></td>
+    <td><%= i_paid_you.payment_id %></td>
+    <td><%= i_paid_you.created_at %></td>
+    <td><%= i_paid_you.amount %></td>
+    <td><%= i_paid_you.payer_id %></td>
+    <td><%= i_paid_you.receiver_id %></td>
+    <td><%= link_to 'Show', i_paid_you %></td>
+    <td><%= link_to 'Edit', edit_i_paid_you_path(i_paid_you) %></td>
+    <td><%= link_to 'Destroy', i_paid_you, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New I paid you', new_i_paid_you_path %>

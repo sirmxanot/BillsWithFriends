@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @expense.id %>
+</p>
+
+<p>
+  <b>Expense name:</b>
+  <%= @expense.expense_name %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @expense.owner_id %>
+</p>
+
+<p>
+  <b>Date incurred:</b>
+  <%= @expense.date_incurred %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @expense.created_at %>
+</p>
+
+<p>
+  <b>Total amount:</b>
+  <%= @expense.total_amount %>
+</p>
+
+<p>
+  <b>Memo:</b>
+  <%= @expense.memo %>
+</p>
+
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>

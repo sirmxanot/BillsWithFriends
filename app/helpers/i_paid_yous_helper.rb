@@ -1,0 +1,2 @@
+module IPaidYousHelper
+end

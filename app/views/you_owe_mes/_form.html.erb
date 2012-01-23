@@ -1,0 +1,41 @@
+<%= form_for(@you_owe_me) do |f| %>
+  <% if @you_owe_me.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@you_owe_me.errors.count, "error") %> prohibited this you_owe_me from being saved:</h2>
+
+      <ul>
+      <% @you_owe_me.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.number_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :expense_id %><br />
+    <%= f.number_field :expense_id %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br />
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.number_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :creditor_id %><br />
+    <%= f.number_field :creditor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :debtor_id %><br />
+    <%= f.number_field :debtor_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
