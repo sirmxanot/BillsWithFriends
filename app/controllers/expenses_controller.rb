@@ -21,17 +21,6 @@ class ExpensesController < ApplicationController
     end
   end
 
-  # GET /expenses/record_expense
-  # GET /expenses/record_expense.json
-  def record_expense
-    @expense = Expense.record_expense
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @expense }
-    end
-  end
-
   # GET /expenses/new
   # GET /expenses/new.json
   def new
