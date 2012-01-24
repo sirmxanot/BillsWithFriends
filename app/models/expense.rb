@@ -1,3 +1,5 @@
 class Expense < ActiveRecord::Base
-	#scope :user_owned, expenses.where(self[:owner_id].eq(current_user.id))
+	belongs_to :user
+	has_many :you_owe_mes
+
 end
