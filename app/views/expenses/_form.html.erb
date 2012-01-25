@@ -11,7 +11,11 @@
     </div>
   <% end %>
 
- 
+ <%= f.hidden_field :id -%>
+ <%= f.hidden_field :owner_id, :value => current_user.id -%>
+ <%= f.hidden_field :created_at -%>
+
+
   <div class="field">
     <%= f.label :expense_name %><br />
     <%= f.text_field :expense_name %>
@@ -33,4 +37,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
