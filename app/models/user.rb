@@ -13,6 +13,6 @@ class User < ActiveRecord::Base
   has_many :you_owe_mes
   has_many :i_paid_yous
 
-  validates_presence_of :id, :first_name, :last_name, :email, :password, :password_confirmation
+  validates_presence_of :first_name, :last_name, :email, :password, :password_confirmation
   
 end
