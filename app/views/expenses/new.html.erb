@@ -9,30 +9,18 @@
 <table class="zebra-striped">
   <tr>
     <th>Id</th>
-    <th>Expense name</th>
+    <th>Expense Name</th>
     <th>Owner</th>
-    <th>Date incurred</th>
-    <th>Created at</th>
-    <th>Total amount</th>
+    <th>Date Incurred</th>
+    <th>Created At</th>
+    <th>Total Amount</th>
     <th>Memo</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @expenses.each do |expense| %>
-  <tr>
-    <td><%= expense.id %></td>
-    <td><%= expense.expense_name %></td>
-    <td><%= expense.owner_id %></td>
-    <td><%= expense.date_incurred %></td>
-    <td><%= expense.created_at %></td>
-    <td><%= expense.total_amount %></td>
-    <td><%= expense.memo %></td>
-    <td><%= link_to 'Show', expense %></td>
-    <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-    <td><%= link_to 'Destroy', expense, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+
 <% end %>
 </table>
 
