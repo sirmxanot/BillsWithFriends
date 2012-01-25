@@ -25,6 +25,7 @@ class ExpensesController < ApplicationController
   # GET /expenses/new.json
   def new
     @expense = Expense.new
+    @expenses = Expense.all
 
     respond_to do |format|
       format.html # new.html.erb
