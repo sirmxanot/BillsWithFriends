@@ -25,7 +25,6 @@ class PaymentsController < ApplicationController
   # GET /payments/new.json
   def new
     @payment = Payment.new
-    @payments = Payment.all
 
     respond_to do |format|
       format.html # new.html.erb
