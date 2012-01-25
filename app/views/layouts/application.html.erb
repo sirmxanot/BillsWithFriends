@@ -10,6 +10,22 @@
 </head>
 <body>
 
+<div class="topbar" data-scrollspy="scrollspy" >
+    <div class="topbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Bills With Friends</a>
+          <ul class="nav">
+            <li><a href="#">Summary</a></li>
+            <li><a href="#about">Record Expense</a></li>
+            <li><a href="#grid-system">Record Payment</a></li>
+            <li><a href="#layouts">Ledger</a></li>
+            <li><a href="<%= expenses_path -%>">Expenses</a></li>
+            <li><a href="<%= payments_path -%>">Payments</a></li>
+          </ul>
+        </div>
+    </div>
+</div>
+
 <%= yield %>
 
 </body>
