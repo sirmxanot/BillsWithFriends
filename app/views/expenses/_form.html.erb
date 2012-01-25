@@ -15,26 +15,28 @@
   <%= f.hidden_field :owner_id, :value => current_user.id -%>
   <%= f.hidden_field :created_at -%>
 
-  <div class="field">
-    <%= f.label :expense_name %><br />
-    <%= f.text_field :expense_name %>
-  </div>
+  <div class="form-stacked">
+    <div class="field">
+      <%= f.label :expense_name %><br />
+      <%= f.text_field :expense_name %>
+    </div>
 
-  <div class="field">
-    <%= f.label :date_incurred %><br />
-    <%= f.date_select :date_incurred %>
-  </div>
+    <div class="field">
+      <%= f.label :date_incurred %><br />
+      <%= f.date_select :date_incurred %>
+    </div>
 
-  <div class="field">
-    <%= f.label :total_amount %><br />
-    <%= f.number_field :total_amount %>
-  </div>
-  <div class="field">
-    <%= f.label :memo %><br />
-    <%= f.text_area :memo, :rows => 3 %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="field">
+      <%= f.label :total_amount %><br />
+      <%= f.number_field :total_amount %>
+    </div>
+    <div class="field">
+      <%= f.label :memo %><br />
+      <%= f.text_area :memo, :rows => 3 %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 
 <% end %>
