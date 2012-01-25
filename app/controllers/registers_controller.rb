@@ -1,4 +1,6 @@
 class RegistersController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /registers
   # GET /registers.json
   def index

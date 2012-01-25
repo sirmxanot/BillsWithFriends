@@ -1,4 +1,6 @@
 class ExpensesController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /expenses
   # GET /expenses.json
   def index

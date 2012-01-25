@@ -1,4 +1,6 @@
 class IPaidYousController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /i_paid_yous
   # GET /i_paid_yous.json
   def index

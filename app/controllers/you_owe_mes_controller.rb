@@ -1,4 +1,6 @@
 class YouOweMesController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /you_owe_mes
   # GET /you_owe_mes.json
   def index
