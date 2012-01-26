@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   before_filter :authenticate_user!
-  
+
   # GET /expenses
   # GET /expenses.json
   def index
@@ -27,6 +27,7 @@ class ExpensesController < ApplicationController
   # GET /expenses/new.json
   def new
     @expense = Expense.new
+    @expenses = Expense.where(:owner_id => current_user.id)
 
     respond_to do |format|
       format.html # new.html.erb

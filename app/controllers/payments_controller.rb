@@ -27,6 +27,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new.json
   def new
     @payment = Payment.new
+    @payments = Payment.where(:owner_id => current_user.id)
 
     respond_to do |format|
       format.html # new.html.erb

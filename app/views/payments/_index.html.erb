@@ -1,0 +1,33 @@
+<h1>Listing payments</h1>
+
+<table class="zebra-striped">
+  <tr>
+    <th>Id</th>
+    <th>Owner</th>
+    <th>Date paid</th>
+    <th>Created at</th>
+    <th>Total amount</th>
+    <th>Memo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @payments.each do |payment| %>
+  <tr>
+    <td><%= payment.id %></td>
+    <td><%= payment.owner_id %></td>
+    <td><%= payment.date_paid %></td>
+    <td><%= payment.created_at %></td>
+    <td><%= payment.total_amount %></td>
+    <td><%= payment.memo %></td>
+    <td><%= link_to 'Show', payment %></td>
+    <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
+    <td><%= link_to 'Destroy', payment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Payment', new_payment_path %>
