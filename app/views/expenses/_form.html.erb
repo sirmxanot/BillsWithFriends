@@ -28,12 +28,14 @@
 
     <div class="field">
       <%= f.label :total_amount %><br />
-      <%= f.number_field :total_amount %>
+      <%= f.text_field :total_amount%>
     </div>
+
     <div class="field">
       <%= f.label :memo %><br />
       <%= f.text_area :memo, :rows => 3 %>
     </div>
+
     <div class="actions">
       <%= f.submit %>
     </div>

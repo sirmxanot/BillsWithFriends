@@ -18,7 +18,7 @@
     <td><%= you_owe_me.id %></td>
     <td><%= you_owe_me.expense_id %></td>
     <td><%= you_owe_me.created_at %></td>
-    <td><%= you_owe_me.amount %></td>
+    <td><%= number_to_currency(you_owe_me.amount) %></td>
     <td><%= you_owe_me.creditor_id %></td>
     <td><%= you_owe_me.debtor_id %></td>
     <td><%= link_to 'Show', you_owe_me %></td>

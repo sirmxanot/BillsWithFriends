@@ -21,7 +21,7 @@
     <td><%= expense.owner_id %></td>
     <td><%= expense.date_incurred %></td>
     <td><%= expense.created_at %></td>
-    <td><%= expense.total_amount %></td>
+    <td><%= number_to_currency(expense.total_amount) %></td>
     <td><%= expense.memo %></td>
     <td><%= link_to 'Show', expense %></td>
     <td><%= link_to 'Edit', edit_expense_path(expense) %></td>

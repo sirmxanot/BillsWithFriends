@@ -17,7 +17,7 @@
     <td><%= register.id %></td>
     <td><%= register.creditor_id %></td>
     <td><%= register.debtor_id %></td>
-    <td><%= register.credit_extended %></td>
+    <td><%= number_to_currency(register.credit_extended) %></td>
     <td><%= register.updated_at %></td>
     <td><%= link_to 'Show', register %></td>
     <td><%= link_to 'Edit', edit_register_path(register) %></td>
