@@ -44,6 +44,7 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(params[:payment])
+    @payments = Payment.where(:owner_id => current_user.id)
 
     respond_to do |format|
       if @payment.save

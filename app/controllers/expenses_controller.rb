@@ -44,7 +44,8 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = Expense.new(params[:expense])
-
+    @expenses = Expense.where(:owner_id => current_user.id)
+    
     respond_to do |format|
       if @expense.save
         format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
