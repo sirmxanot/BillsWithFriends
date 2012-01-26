@@ -14,5 +14,5 @@ class User < ActiveRecord::Base
   has_many :i_paid_yous
 
   validates_presence_of :first_name, :last_name, :email, :password, :password_confirmation
-  
+  validates :email, :uniqueness => true
 end
