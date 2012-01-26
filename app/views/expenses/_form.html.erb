@@ -42,7 +42,7 @@
   <%= f.fields_for :you_owe_mes do |ff| %>
     
     <%= ff.hidden_field :id -%>
-    <%= ff.hidden_field :expense_id => f.id -%>
+    <%= ff.hidden_field :expense_id, :value => @expense.id -%>
     <%= ff.hidden_field :creditor_id, :value => current_user.id -%>
     <%= ff.hidden_field :created_at -%>
     
