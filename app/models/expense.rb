@@ -1,7 +1,10 @@
 class Expense < ActiveRecord::Base
 	belongs_to :user
 	has_many :you_owe_mes
-	accepts_nested_attributes_for :you_owe_mes
+	accepts_nested_attributes_for :you_owe_me, 
+								  :allow_destroy => true, 
+								  :limit => 10, 
+								  :reject_if => :all_blank
 	
 
 	validates_presence_of :expense_name, :owner_id, :date_incurred, :total_amount

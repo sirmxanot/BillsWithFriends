@@ -15,6 +15,8 @@
   <%= f.hidden_field :owner_id, :value => current_user.id -%>
   <%= f.hidden_field :created_at -%>
 
+  
+
   <div class="form-stacked">
     <div class="field">
       <%= f.label :expense_name %><br />
@@ -35,6 +37,19 @@
       <%= f.label :memo %><br />
       <%= f.text_area :memo, :rows => 3 %>
     </div>
+
+<h2>Participants</h2>
+  <%= f.fields_for :you_owe_me do |ff| %>
+    <div class="field">
+      <%= ff.label :debtor_id %>
+      <%= ff.text_field :debtor_id %>
+    </div>
+  <% end %>
+
+
+
+
+    
 
     <div class="actions">
       <%= f.submit %>
