@@ -28,11 +28,14 @@ class ExpensesController < ApplicationController
   def new
     @expense = Expense.new
     @expenses = Expense.where(:owner_id => current_user.id)
+    #use this in the future @previous_expenses = current_user.expenses
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @expense }
     end
+
+    # in future replace view helper with @expense.debts.build here.
   end
 
   # GET /expenses/1/edit
