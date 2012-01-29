@@ -1,6 +1,8 @@
 class YouOweMe < ActiveRecord::Base
 	belongs_to :expense
 
+	default_scope :order => 'created_at DESC'
+
 	validates_presence_of :amount, :creditor_id, :debtor_id
 	validates :amount, :numericality => {:greater_than_or_equal_to => 1}
 
