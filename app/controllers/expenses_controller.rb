@@ -27,8 +27,7 @@ class ExpensesController < ApplicationController
   # GET /expenses/new.json
   def new
     @expense = Expense.new
-    @expenses = Expense.where(:owner_id => current_user.id)
-    #use this in the future @previous_expenses = current_user.expenses
+    @previous_expenses = current_user.expenses
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,7 +46,7 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = Expense.new(params[:expense])
-    @expenses = Expense.where(:owner_id => current_user.id)
+    @previous_expenses = current_user.expenses
     
     respond_to do |format|
       if @expense.save

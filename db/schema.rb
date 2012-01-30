@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120123185259) do
+ActiveRecord::Schema.define(:version => 20120130192336) do
 
   create_table "expenses", :force => true do |t|
     t.string   "expense_name"
-    t.integer  "owner_id"
+    t.integer  "user_id"
     t.date     "date_incurred"
     t.integer  "total_amount"
     t.string   "memo"

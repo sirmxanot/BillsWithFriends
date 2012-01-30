@@ -12,7 +12,7 @@ class Expense < ActiveRecord::Base
 			    				  }
 	
 
-	validates_presence_of :expense_name, :owner_id, :date_incurred, :total_amount
+	validates_presence_of :expense_name, :user_id, :date_incurred, :total_amount
 	validates :total_amount, :numericality => {:greater_than_or_equal_to => 1}
 
 	require 'Money'

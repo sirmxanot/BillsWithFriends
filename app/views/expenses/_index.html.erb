@@ -14,11 +14,11 @@
     <th></th>
   </tr>
 
-<% @expenses.each do |expense| %>
+<% @previous_expenses.each do |expense| %>
   <tr>
     <td><%= expense.id %></td>
     <td><%= expense.expense_name %></td>
-    <td><%= expense.owner_id %></td>
+    <td><%= expense.user_id %></td>
     <td><%= expense.date_incurred %></td>
     <td><%= expense.created_at %></td>
     <td><%= number_to_currency(expense.total_amount) %></td>
