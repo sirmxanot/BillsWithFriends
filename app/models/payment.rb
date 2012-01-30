@@ -5,7 +5,7 @@ class Payment < ActiveRecord::Base
 
 	default_scope :order => 'created_at DESC'
 
-	validates_presence_of :owner_id, :date_paid, :total_amount
+	validates_presence_of :user_id, :date_paid, :total_amount
 	validates :total_amount, :numericality => {:greater_than_or_equal_to => 1}
 
 	require 'Money'

@@ -27,8 +27,8 @@ class PaymentsController < ApplicationController
   # GET /payments/new.json
   def new
     @payment = Payment.new
-    @payments = Payment.where(:owner_id => current_user.id)
-
+    @previous_payments = current_user.payments
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @payment }
@@ -44,7 +44,7 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(params[:payment])
-    @payments = Payment.where(:owner_id => current_user.id)
+    @previous_payments = current_user.payments
 
     respond_to do |format|
       if @payment.save
