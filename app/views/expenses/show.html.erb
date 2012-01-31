@@ -35,6 +35,11 @@
   <%= @expense.memo %>
 </p>
 
+<ol>
+  <% for you_owe_mes in @expense.you_owe_mes %>
+    <li><b> Debtor Id: </b> <%= you_owe_mes.debtor_id %><b> , Amount: </b> <%= you_owe_mes.amount %></li>
+  <% end %>
+</ol>
 
 <%= link_to 'Edit', edit_expense_path(@expense) %> |
 <%= link_to 'Back', expenses_path %>
