@@ -42,7 +42,7 @@
   <%= f.fields_for :you_owe_mes do |builder| %>
     <%= render 'you_owe_me_fields', :f => builder  %>
   <% end %>
-
+  <p><%= link_to_add_fields "Add Participant", f, :you_owe_mes %></p>
 
 
 
