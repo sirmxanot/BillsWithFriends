@@ -11,6 +11,16 @@
 </p>
 
 <p>
+  <b>Receiver:</b>
+  <%= @payment.i_paid_you.receiver_id %>
+</p>
+
+<p>
+  <b>TESTING I PAID YOU AMOUNT TESTING:</b>
+  <%= number_to_currency(@payment.i_paid_you.amount) %>
+</p>
+
+<p>
   <b>Date paid:</b>
   <%= @payment.date_paid %>
 </p>

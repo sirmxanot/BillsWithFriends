@@ -16,14 +16,16 @@
   <%= f.hidden_field :created_at -%>
 
   <div class="form-stacked">
-    <div class="field">
-      <%= f.label :date_paid %><br />
-      <%= f.datetime_select :date_paid %>
-    </div>
-
+    <%= f.fields_for :i_paid_you do |builder| %>
+      <%= render 'i_paid_you_fields', :f => builder  %>
+    <% end %>
     <div class="field">
       <%= f.label :total_amount %><br />
       <%= f.text_field :total_amount %>
+    </div>
+    <div class="field">
+      <%= f.label :date_paid %><br />
+      <%= f.datetime_select :date_paid %>
     </div>
     <div class="field">
       <%= f.label :memo %><br />
