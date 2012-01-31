@@ -28,7 +28,7 @@ class ExpensesController < ApplicationController
   def new
     @expense = Expense.new
     @previous_expenses = current_user.expenses
-    @expense.you_owe_mes.build
+    3.times {@expense.you_owe_mes.build}
 
     respond_to do |format|
       format.html # new.html.erb
