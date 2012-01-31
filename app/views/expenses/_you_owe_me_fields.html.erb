@@ -1,0 +1,27 @@
+<div class="fields">  
+  <%= f.hidden_field :id -%>
+  <%= f.hidden_field :expense_id, :value => @expense.id -%>
+  <%= f.hidden_field :creditor_id, :value => current_user.id -%>
+  <%= f.hidden_field :created_at -%>
+  
+  <div class="row show-grid" title="Half and half">
+    <div class="span6">
+      <div class="field">
+        <%= f.label :debtor_id %>
+        <%= f.text_field :debtor_id %>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="field">
+        <%= f.label :amount %>
+        <%= f.text_field :amount %>
+      </div>
+    </div> 
+    <div class="span4">
+      <div class="field">
+        <%= f.hidden_field :_destroy%>
+        <%= link_to_function "remove", "remove_fields(this)" %>
+      </div>
+    </div> 
+  </div>
+</div>

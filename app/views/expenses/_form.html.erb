@@ -39,32 +39,8 @@
     </div>
 
 <h2>Participants</h2>
-  <%= f.fields_for :you_owe_mes do |ff| %>
-    
-    <%= ff.hidden_field :id -%>
-    <%= ff.hidden_field :expense_id, :value => @expense.id -%>
-    <%= ff.hidden_field :creditor_id, :value => current_user.id -%>
-    <%= ff.hidden_field :created_at -%>
-    
-    <div class="row show-grid" title="Half and half">
-      <div class="span8">
-        <div class="field">
-          <%= ff.label :debtor_id %>
-          <%= ff.text_field :debtor_id %>
-          <% if ff.object.persisted? %>
-            <%= ff.check_box :_destroy %>
-            <%= ff.label :_destroy, "Destroy" %>
-          <% end %>
-        </div>
-      </div>
-      <div class="span8">
-        <div class="field">
-          <%= ff.label :amount %>
-          <%= ff.text_field :amount %>
-        </div>
-      </div> 
-     
-    </div>
+  <%= f.fields_for :you_owe_mes do |builder| %>
+    <%= render 'you_owe_me_fields', :f => builder  %>
   <% end %>
 
 
