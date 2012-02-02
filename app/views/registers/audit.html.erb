@@ -1,0 +1,34 @@
+<h1>Expenses and Payments Between A and B</h1>
+
+<table class="zebra-striped">
+  <tr>
+    <th>Id</th>
+    <th>Expense name</th>
+    <th>Owner</th>
+    <th>Date incurred</th>
+    <th>Created at</th>
+    <th>Total amount</th>
+    <th>Memo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @you_owe_me.each do |you_owe_me| %>
+  <tr>
+    <td><%= you_owe_me.id %></td>
+    <td><%= you_owe_me.expense_id %></td>
+    <td><%= you_owe_me.created_at %></td>
+    <td><%= number_to_currency(you_owe_me.amount) %></td>
+    <td><%= you_owe_me.creditor %></td>
+    <td><%= you_owe_me.debtor %></td>
+    <td><%= link_to 'Show', expense %></td>
+    <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    <td><%= link_to 'Destroy', expense, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Expense', new_expense_path %>

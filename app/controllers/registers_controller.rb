@@ -23,6 +23,17 @@ class RegistersController < ApplicationController
     end
   end
 
+  def audit
+    @register = Register.find(params[:id])
+    @you_owe_me = You_owe_me.find(params[:creditor_id, :debtor_id])
+    @i_paid_you = I_paid_you.find(params[:receiver_id, :payer_id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @register }
+    end
+  end
+
   # GET /registers/new
   # GET /registers/new.json
   def new

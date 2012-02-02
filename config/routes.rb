@@ -17,6 +17,8 @@ BillsWithFriends::Application.routes.draw do
 
   match '/summary', :to => 'summary#index'
 
+  match "/registers/:id/audit" => "registers#audit"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
