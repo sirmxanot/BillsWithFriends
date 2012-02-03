@@ -20,5 +20,11 @@ class YouOweMe < ActiveRecord::Base
 	    end
 
 	    register.credit_extended += self.amount
+
+	    #credit_extended = register.credit_extended
+	    #credit_extended += self.amount
+	    #register.update_attributes(:credit_extended => credit_extended)
+
+	    register.save
 	  end
 end
