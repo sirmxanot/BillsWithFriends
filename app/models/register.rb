@@ -5,15 +5,11 @@ class Register < ActiveRecord::Base
 
 	validates_presence_of :creditor_id, :debtor_id, :credit_extended
 	validates :credit_extended, :numericality => {:greater_than_or_equal_to => 0}
-	
+
 	private
 	    def default_values
 	      self.credit_extended ||= "0"
 	    end
-
-	    def add_a_you_owe_me
-	    	
-	  	end
 
 	require 'Money'
 	composed_of   :credit_extended,

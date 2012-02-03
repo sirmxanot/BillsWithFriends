@@ -25,8 +25,12 @@ class RegistersController < ApplicationController
 
   def audit
     @register = Register.find(params[:id])
-    @you_owe_me = You_owe_me.find(params[:creditor_id, :debtor_id])
-    @i_paid_you = I_paid_you.find(params[:receiver_id, :payer_id])
+
+    @you_owe_me = YouOweMe.where("creditor_id = ? AND debtor_id = ?", params[:creditor_id], params[:debtor_id])   
+
+    #IPaidYou.find_each do |i_paid_you|
+    #  @i_paid_you = IPaidYou.where("receiver_id = ? AND payer_id = ?", params[:receiver_id], params[:payer_id])   
+    #end
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,14 +1,40 @@
-<h1>Expenses and Payments Between A and B</h1>
+<h1>Audit for Register <%= @register.id%></h1>
+<p>
+  <b>Id:</b>
+  <%= @register.id %>
+</p>
+
+<p>
+  <b>Creditor:</b>
+  <%= @register.creditor_id %>
+</p>
+
+<p>
+  <b>Debtor:</b>
+  <%= @register.debtor_id %>
+</p>
+
+<p>
+  <b>Credit extended:</b>
+  <%= number_to_currency(@register.credit_extended) %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%= @register.updated_at %>
+</p>
+
+<h2>Expenses and Payments Between A and B</h2>
 
 <table class="zebra-striped">
   <tr>
-    <th>Id</th>
+    <th>You_owe_me Id</th>
+    <th>Expense Id</th>
     <th>Expense name</th>
-    <th>Owner</th>
-    <th>Date incurred</th>
-    <th>Created at</th>
-    <th>Total amount</th>
-    <th>Memo</th>
+    <th>Created At</th>
+    <th>Amount</th>
+    <th>Creditor</th>
+    <th>Debtor</th>
     <th></th>
     <th></th>
     <th></th>
@@ -30,5 +56,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Expense', new_expense_path %>
