@@ -6,8 +6,12 @@ class Register < ActiveRecord::Base
 	validates_presence_of :creditor_id, :debtor_id, :credit_extended
 	validates :credit_extended, :numericality => {:greater_than_or_equal_to => 0}
 
-	def self.current_user_owns(current_user_id)
+	def self.current_user_owns (current_user_id)
 		where(:creditor_id => current_user_id)
+	end
+
+	def self.current_user_owes (current_user_id)
+		where(:debtor_id => current_user_id)
 	end
 
 	private
