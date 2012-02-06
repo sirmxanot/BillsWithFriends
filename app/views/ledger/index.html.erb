@@ -1,0 +1,57 @@
+<h1>Ledger</h1>
+
+<h2>Expenses You've Recorded</h2>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Owner ID</th>
+    <th>Amount</th>
+    <th>Updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users_expenses.each do |expense| %>
+  <tr>
+    <td><%= expense.id %></td>
+    <td><%= expense.user_id %></td>
+    <td><%= expense.total_amount %></td>
+    <td><%= expense.updated_at %></td>
+    <td><%= link_to 'Show', expense%></td>
+    <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    <td><%= link_to 'Destroy', expense, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Payments You've Recorded</h2>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Owner ID</th>
+    <th>Amount</th>
+    <th>Updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users_payments.each do |payment| %>
+  <tr>
+    <td><%= payment.id %></td>
+    <td><%= payment.user_id %></td>
+    <td><%= payment.total_amount %></td>
+    <td><%= payment.updated_at %></td>
+    <td><%= link_to 'Show', payment %></td>
+    <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
+    <td><%= link_to 'Destroy', payment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+<br />
