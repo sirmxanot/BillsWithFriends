@@ -4,7 +4,7 @@ class SummaryController < ApplicationController
 	# GET /payments
   	# GET /payments.json
 	def index
-	    @registers = Register.all
+	    @registers = Register.current_user_owns(current_user.id)
 
 	    respond_to do |format|
 	      format.html # index.html.erb

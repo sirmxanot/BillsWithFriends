@@ -19,6 +19,11 @@ BillsWithFriends::Application.routes.draw do
 
   match "/registers/:id/audit" => "registers#audit"
 
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+    get "/logout" => "devise/sessions#destroy"
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
