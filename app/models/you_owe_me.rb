@@ -10,6 +10,10 @@ class YouOweMe < ActiveRecord::Base
 	validates :amount, :numericality => {:greater_than_or_equal_to => 1}
 	#Need to add a validation to ensure that you cannot submit a you_owe_me where the debtor and creditor ids are the same
 
+	def self.you_owe_me_audit(creditor_id, debtor_id)
+		where(:creditor_id => creditor_id, :debtor_id => debtor_id)
+	end
+
 	private
 
 	#This method creates a register if it doesn't exist and then adds the you_owe_me.amount to the register.credit_extended

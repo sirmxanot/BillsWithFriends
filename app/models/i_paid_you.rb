@@ -9,6 +9,10 @@ class IPaidYou < ActiveRecord::Base
 	validates_presence_of :amount, :payer_id, :receiver_id
 	validates :amount, :numericality => {:greater_than_or_equal_to => 1}
 
+	def self.i_paid_you_audit(creditor_id, debtor_id)
+		where(:receiver_id => creditor_id, :payer_id => debtor_id)
+	end
+
 	private
 
 	#This method subtracts the i_paid_you.amount to the register.credit_extended

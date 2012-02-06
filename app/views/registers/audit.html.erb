@@ -24,13 +24,12 @@
   <%= @register.updated_at %>
 </p>
 
-<h2>Expenses and Payments Between A and B</h2>
+<h2>Expenses With Creditor/ Debter Combination</h2>
 
 <table class="zebra-striped">
   <tr>
     <th>You_owe_me Id</th>
     <th>Expense Id</th>
-    <th>Expense name</th>
     <th>Created At</th>
     <th>Amount</th>
     <th>Creditor</th>
@@ -46,11 +45,41 @@
     <td><%= you_owe_me.expense_id %></td>
     <td><%= you_owe_me.created_at %></td>
     <td><%= you_owe_me.amount %></td>
-    <td><%= you_owe_me.creditor %></td>
-    <td><%= you_owe_me.debtor %></td>
-    <td><%= link_to 'Show', expense %></td>
-    <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-    <td><%= link_to 'Destroy', expense, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= you_owe_me.creditor_id %></td>
+    <td><%= you_owe_me.debtor_id %></td>
+    <td><%= link_to 'Show', you_owe_me %></td>
+    <td><%= link_to 'Edit', edit_you_owe_me_path(you_owe_me) %></td>
+    <td><%= link_to 'Destroy', you_owe_me, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Payments With Receiver/Payer Combination</h2>
+
+<table class="zebra-striped">
+  <tr>
+    <th>I_paid_you Id</th>
+    <th>Payment Id</th>
+    <th>Created At</th>
+    <th>Amount</th>
+    <th>Payer</th>
+    <th>Receiver</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @i_paid_you.each do |i_paid_you| %>
+  <tr>
+    <td><%= i_paid_you.id %></td>
+    <td><%= i_paid_you.payment_id %></td>
+    <td><%= i_paid_you.created_at %></td>
+    <td><%= i_paid_you.amount %></td>
+    <td><%= i_paid_you.payer_id %></td>
+    <td><%= i_paid_you.receiver_id %></td>
+    <td><%= link_to 'Show', i_paid_you %></td>
+    <td><%= link_to 'Edit', edit_i_paid_you_path(i_paid_you) %></td>
+    <td><%= link_to 'Destroy', i_paid_you, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
