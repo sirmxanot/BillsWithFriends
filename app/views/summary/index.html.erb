@@ -12,6 +12,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @owes_user.each do |register| %>
@@ -22,6 +23,7 @@
     <td><%= register.credit_extended %></td>
     <td><%= register.updated_at %></td>
     <td><%= link_to 'Show', register %></td>
+    <td><%= link_to 'Audit', audit_register_path(register) %></td>
     <td><%= link_to 'Edit', edit_register_path(register) %></td>
     <td><%= link_to 'Destroy', register, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
@@ -40,6 +42,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @user_owes.each do |register| %>
@@ -50,6 +53,7 @@
     <td><%= register.credit_extended %></td>
     <td><%= register.updated_at %></td>
     <td><%= link_to 'Show', register %></td>
+    <td><%= link_to 'Audit', audit_register_path(register) %></td>
     <td><%= link_to 'Edit', edit_register_path(register) %></td>
     <td><%= link_to 'Destroy', register, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

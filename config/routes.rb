@@ -17,7 +17,9 @@ BillsWithFriends::Application.routes.draw do
 
   match '/summary', :to => 'summary#index'
 
-  match "/registers/:id/audit" => "registers#audit"
+  match '/ledger', :to => 'ledger#index'
+
+  match '/registers/:id/audit', :to => "registers#audit", :as => "audit_register"
 
   devise_scope :user do
     get "/login" => "devise/sessions#new"

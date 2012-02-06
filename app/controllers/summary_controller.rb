@@ -12,5 +12,5 @@ class SummaryController < ApplicationController
 	      format.html # index.html.erb
 	      format.json { render json: @registers }
 	    end
-	  end
+	end
 end
