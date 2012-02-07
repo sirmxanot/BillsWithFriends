@@ -5,8 +5,6 @@ BillsWithFriends::Application.routes.draw do
 
   resources :registers
 
-  resources :i_paid_yous
-
   resources :you_owe_mes
 
   resources :payments
