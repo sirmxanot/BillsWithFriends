@@ -28,9 +28,9 @@ class RegistersController < ApplicationController
 
     @you_owe_me = YouOweMe.you_owe_me_audit(@register.creditor_id, @register.debtor_id) 
     
-    @i_paid_you = IPaidYou.i_paid_you_audit(@register.creditor_id, @register.debtor_id)
+    @payment = Payment.payment_audit(@register.creditor_id, @register.debtor_id)
     
-    @audit = Audit.audit_math(@you_owe_me, @i_paid_you)
+    @audit = Audit.audit_math(@you_owe_me, @payment)
 
     respond_to do |format|
       format.html # show.html.erb

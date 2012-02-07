@@ -28,7 +28,6 @@ class PaymentsController < ApplicationController
   def new
     @payment = Payment.new
     @previous_payments = current_user.payments
-    @payment.build_i_paid_you
     
     respond_to do |format|
       format.html # new.html.erb
