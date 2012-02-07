@@ -32,6 +32,7 @@
   <tr>
     <th>Id</th>
     <th>Owner ID</th>
+    <th>Receiver ID</th>
     <th>Amount</th>
     <th>Updated at</th>
     <th></th>
@@ -43,6 +44,7 @@
   <tr>
     <td><%= payment.id %></td>
     <td><%= payment.user_id %></td>
+    <td><%= payment.receiver_id %></td>
     <td><%= payment.total_amount %></td>
     <td><%= payment.updated_at %></td>
     <td><%= link_to 'Show', payment %></td>

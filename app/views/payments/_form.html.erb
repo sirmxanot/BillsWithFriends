@@ -16,9 +16,10 @@
   <%= f.hidden_field :created_at -%>
 
   <div class="form-stacked">
-    <%= f.fields_for :i_paid_you do |builder| %>
-      <%= render 'i_paid_you_fields', :f => builder  %>
-    <% end %>
+    <div class="field">  
+      <%= f.label :receiver_id, "Who Was Paid" %>
+      <%= f.text_field :receiver_id %>
+    </div>  
     <div class="field">
       <%= f.label :total_amount %><br />
       <%= f.text_field :total_amount %>

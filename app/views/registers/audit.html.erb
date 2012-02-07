@@ -64,7 +64,6 @@
 
 <table class="zebra-striped">
   <tr>
-    <th>I_paid_you Id</th>
     <th>Payment Id</th>
     <th>Created At</th>
     <th>Amount</th>
@@ -75,17 +74,16 @@
     <th></th>
   </tr>
 
-<% @i_paid_you.each do |i_paid_you| %>
+<% @payment.each do |payment| %>
   <tr>
-    <td><%= i_paid_you.id %></td>
-    <td><%= i_paid_you.payment_id %></td>
-    <td><%= i_paid_you.created_at %></td>
-    <td><%= i_paid_you.amount %></td>
-    <td><%= i_paid_you.payer_id %></td>
-    <td><%= i_paid_you.receiver_id %></td>
-    <td><%= link_to 'Show', i_paid_you %></td>
-    <td><%= link_to 'Edit', edit_i_paid_you_path(i_paid_you) %></td>
-    <td><%= link_to 'Destroy', i_paid_you, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= payment.id %></td>
+    <td><%= payment.created_at %></td>
+    <td><%= payment.total_amount %></td>
+    <td><%= payment.user_id %></td>
+    <td><%= payment.receiver_id %></td>
+    <td><%= link_to 'Show', payment%></td>
+    <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
+    <td><%= link_to 'Destroy', payment, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
