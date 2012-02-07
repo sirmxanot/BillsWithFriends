@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120130194002) do
+ActiveRecord::Schema.define(:version => 20120207215551) do
 
   create_table "expenses", :force => true do |t|
     t.string   "expense_name"
@@ -23,15 +23,6 @@ ActiveRecord::Schema.define(:version => 20120130194002) do
     t.datetime "updated_at"
   end
 
-  create_table "i_paid_yous", :force => true do |t|
-    t.integer  "payment_id"
-    t.integer  "amount"
-    t.integer  "payer_id"
-    t.integer  "receiver_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "payments", :force => true do |t|
     t.integer  "user_id"
     t.datetime "date_paid"
@@ -39,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120130194002) do
     t.string   "memo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "receiver_id"
   end
 
   create_table "registers", :force => true do |t|
