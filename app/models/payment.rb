@@ -8,6 +8,7 @@ class Payment < ActiveRecord::Base
 
 	validates_presence_of :user_id, :date_paid, :total_amount, :receiver_id
 	validates :total_amount, :numericality => {:greater_than_or_equal_to => 1}
+	validates_with PaymentValidator
 
 	def self.payment_audit(creditor_id, debtor_id)
 		where(:receiver_id => creditor_id, :user_id => debtor_id)
