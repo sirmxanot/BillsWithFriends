@@ -14,6 +14,10 @@ class Register < ActiveRecord::Base
 		where(:debtor_id => current_user_id)
 	end
 
+	def self.register_for_payment (creditor_id, debtor_id)
+		where(:creditor_id => creditor_id, :debtor_id => debtor_id)
+	end
+
 	private
 	    def default_values
 	      self.credit_extended ||= "0"

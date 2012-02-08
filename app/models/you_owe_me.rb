@@ -14,6 +14,10 @@ class YouOweMe < ActiveRecord::Base
 		where(:creditor_id => creditor_id, :debtor_id => debtor_id)
 	end
 
+	def self.that_belong_to_expense(expense_id)
+		where(:expense_id => expense_id)
+	end
+
 	private
 
 	#This method creates a register if it doesn't exist and then adds the you_owe_me.amount to the register.credit_extended
