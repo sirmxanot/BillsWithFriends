@@ -25,7 +25,7 @@
 
     <div class="field">
       <%= f.label :date_incurred %><br />
-      <%= f.date_select :date_incurred %>
+      <%= f.date_select :date_incurred, :default => {:day => Time.now.day }  %>
     </div>
 
     <div class="field">

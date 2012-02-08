@@ -26,7 +26,7 @@
     </div>
     <div class="field">
       <%= f.label :date_paid %><br />
-      <%= f.date_select :date_paid %>
+      <%= f.date_select :date_paid, :default => {:day => Time.now.day } %>
     </div>
     <div class="field">
       <%= f.label :memo %><br />
