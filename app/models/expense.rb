@@ -1,6 +1,6 @@
 class Expense < ActiveRecord::Base
 	belongs_to :user
-	has_many :you_owe_mes
+	has_many :you_owe_mes, :dependent => :destroy
 
 	default_scope :order => 'created_at DESC'
 

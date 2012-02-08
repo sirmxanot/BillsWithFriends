@@ -24,7 +24,6 @@
   <%= @audit %>
 </p>
 
-
 <p>
   <b>Updated at:</b>
   <%= @register.updated_at %>
@@ -41,8 +40,6 @@
     <th>Creditor</th>
     <th>Debtor</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @you_owe_me.each do |you_owe_me| %>
@@ -54,8 +51,6 @@
     <td><%= you_owe_me.creditor_id %></td>
     <td><%= you_owe_me.debtor_id %></td>
     <td><%= link_to 'Show', you_owe_me %></td>
-    <td><%= link_to 'Edit', edit_you_owe_me_path(you_owe_me) %></td>
-    <td><%= link_to 'Destroy', you_owe_me, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -70,8 +65,6 @@
     <th>Payer</th>
     <th>Receiver</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @payment.each do |payment| %>
@@ -82,8 +75,6 @@
     <td><%= payment.user_id %></td>
     <td><%= payment.receiver_id %></td>
     <td><%= link_to 'Show', payment%></td>
-    <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-    <td><%= link_to 'Destroy', payment, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
