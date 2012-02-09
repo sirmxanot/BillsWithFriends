@@ -1,7 +1,7 @@
 class YouOweMe < ActiveRecord::Base
 	#Calls the update_register method before saving a you_owe_me
 	before_create :add_you_owe_me_to_register
-	#before_update :update_register
+	before_update :update_register
 	before_destroy :subtract_you_owe_me_from_register
 
 	belongs_to :expense
@@ -32,10 +32,10 @@ class YouOweMe < ActiveRecord::Base
   end
 
   def update_register
-  	#register = Register.where(:creditor_id => creditor_id, :debtor_id => debtor_id).first
+  	register = Register.where(:creditor_id => creditor_id, :debtor_id => debtor_id).first
 
-    #credit_extended = register.credit_extended - self.amount
-    #register.update_attributes(:credit_extended => credit_extended)
+    credit_extended = register.credit_extended + (self.amount - self.amount_was)
+    register.update_attributes(:credit_extended => credit_extended)
   end
 
   def subtract_you_owe_me_from_register

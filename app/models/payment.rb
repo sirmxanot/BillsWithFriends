@@ -1,7 +1,7 @@
 class Payment < ActiveRecord::Base
 	#Calls the update_register method before saving a payment
 	before_create :subtract_payment_from_register
-	#before_update :update_register
+	before_update :update_register
 	before_destroy :add_payment_to_register
 
 	belongs_to :user
@@ -27,10 +27,10 @@ class Payment < ActiveRecord::Base
   end
 
    def update_register
-  	#register = Register.where(:creditor_id => receiver_id, :debtor_id => user_id).first
+  	register = Register.where(:creditor_id => receiver_id, :debtor_id => user_id).first
     
-    #credit_extended = register.credit_extended + self.total_amount
-   	#register.update_attributes(:credit_extended => credit_extended)	
+    credit_extended = register.credit_extended - (self.total_amount - self.total_amount_was)
+   	register.update_attributes(:credit_extended => credit_extended)	
   end
 
   def add_payment_to_register
