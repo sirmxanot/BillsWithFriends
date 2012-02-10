@@ -8,6 +8,10 @@ class PaymentValidator < ActiveModel::Validator
   	if future_expense_checker(record)
   		record.errors[:base] << "You can't record payments for a time in the future"
   	end
+
+    if cant_pay_self_checker(record)
+      record.errors[:base] << "You can't record payments from you to yourself"
+    end
 	end
 
 	private
@@ -22,6 +26,14 @@ class PaymentValidator < ActiveModel::Validator
 		date = record.date_paid
   	time = date.to_time
   	time.future?
+  end
+
+  def cant_pay_self_checker (record)
+    are_you_yourself = 0
+    if record.user_id == record.receiver_id
+      are_you_yourself = 1
+    end
+    are_you_yourself
   end
 
 end
