@@ -29,11 +29,7 @@ class PaymentValidator < ActiveModel::Validator
   end
 
   def cant_pay_self_checker (record)
-    are_you_yourself = 0
-    if record.user_id == record.receiver_id
-      are_you_yourself = 1
-    end
-    are_you_yourself
+    return 1 if record.user_id == record.receiver_id
   end
 
 end
