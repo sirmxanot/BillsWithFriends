@@ -1,5 +1,83 @@
 <h1>Ledger</h1>
 
+<h2>All in One Ledger</h2>
+
+<table>
+  <tr>
+    <th>Class</th>
+    <th>Id</th>
+    <th>Creditor</th>
+    <th>Debtor</th>
+    <th>Amount</th>
+    <th>Updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sorted_ledger.each do |ledger| %>
+  <tr>
+    <% if ledger.class == Payment %>
+      <% if ledger.user_id == current_user.id %>
+        <td><%= ledger.class %></td>
+        <td><%= ledger.id %></td>
+        <td><%= ledger.receiver_id  %></td>
+        <td><%= ledger.user_id %></td>
+        <td><%= ledger.total_amount*(-1) %></td>
+        <td><%= ledger.updated_at %></td>
+      <% elsif ledger.receiver_id == current_user.id %>
+        <td><%= ledger.class %></td>
+        <td><%= ledger.id %></td>
+        <td><%= ledger.user_id %></td>
+        <td><%= ledger.receiver_id %></td>
+        <td><%= ledger.total_amount %></td>
+        <td><%= ledger.updated_at %></td>
+      <% else %>
+        <td>Error in the view somewhere</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      <% end %>
+    <% elsif ledger.class == Expense %>
+      <td><%= ledger.class %></td>
+      <td><%= ledger.id %></td>
+      <td><%= ledger.user_id %></td>
+      <td> Click Here </td>
+      <td><%= ledger.total_amount %></td>
+      <td><%= ledger.updated_at %></td>
+    <% elsif ledger.class == YouOweMe %>
+      <td><%= ledger.class %></td>
+      <td><%= ledger.id %></td>
+      <td><%= ledger.creditor_id %></td>
+      <td><%= ledger.debtor_id %></td>
+      <td><%= ledger.amount*(-1) %></td>
+      <td><%= ledger.updated_at %></td>
+    <% else %>
+      <td><%= ledger.class %></td>
+      <td>Attribute of Wrong Class Here</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    <% end %>
+  </tr>  
+
+
+
+
+
+
+
+
+
+
+<% end %>
+</table>
+
+
+
 <h2>Expenses You've Recorded</h2>
 
 <table>
@@ -26,6 +104,32 @@
 <% end %>
 </table>
 
+<h2>Debts You've Incurred</h2>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Who You Owe</th>
+    <th>Amount</th>
+    <th>Updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @you_owe_mes_user_owes.each do |you_owe_me| %>
+  <tr>
+    <td><%= you_owe_me.id %></td>
+    <td><%= you_owe_me.creditor_id %></td>
+    <td><%= you_owe_me.amount %></td>
+    <td><%= you_owe_me.updated_at %></td>
+    <td><%= link_to 'Show', you_owe_me%></td>
+    <td><%= link_to 'Edit', edit_you_owe_me_path(you_owe_me) %></td>
+    <td><%= link_to 'Destroy', you_owe_me, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
 <h2>Payments You've Recorded</h2>
 
 <table>
@@ -41,6 +145,34 @@
   </tr>
 
 <% @users_payments.each do |payment| %>
+  <tr>
+    <td><%= payment.id %></td>
+    <td><%= payment.user_id %></td>
+    <td><%= payment.receiver_id %></td>
+    <td><%= payment.total_amount %></td>
+    <td><%= payment.updated_at %></td>
+    <td><%= link_to 'Show', payment %></td>
+    <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
+    <td><%= link_to 'Destroy', payment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Payments You've Received</h2>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Owner ID</th>
+    <th>Receiver ID</th>
+    <th>Amount</th>
+    <th>Updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @payments_user_received.each do |payment| %>
   <tr>
     <td><%= payment.id %></td>
     <td><%= payment.user_id %></td>

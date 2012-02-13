@@ -16,6 +16,10 @@ class Payment < ActiveRecord::Base
 		where(:receiver_id => creditor_id, :user_id => debtor_id)
 	end
 
+  def self.user_is_receiver(current_user_id)
+    where(:receiver_id => current_user_id)
+  end
+
 	private
 
 	#This method subtracts the payment.amount to the register.credit_extended
