@@ -36,3 +36,4 @@ group :test do
 end
 
 gem 'devise'
+gem 'simple_form'
