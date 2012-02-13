@@ -15,7 +15,7 @@
   <%= f.hidden_field :user_id, :value => current_user.id -%>
   <%= f.hidden_field :created_at -%>
 
-  <%= f.input :receiver_id, :label => 'Who Was Paid', :collection => @users, :label_method => :email, :value_method => :id -%>
+  <%= f.input :receiver_id, :label => 'Who Was Paid', :collection => @users, :label_method => :full_name, :value_method => :id -%>
   <%= f.input :total_amount -%>
   <%= f.input :date_paid, :as => :date, :default => {:day => Time.now.day }-%>
   <%= f.input :memo, :rows => 3 -%>
