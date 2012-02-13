@@ -1,4 +1,4 @@
-<%= form_for(@payment) do |f| %>
+<%= simple_form_for(@payment) do |f| %>
   <% if @payment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
@@ -15,25 +15,11 @@
   <%= f.hidden_field :user_id, :value => current_user.id -%>
   <%= f.hidden_field :created_at -%>
 
-  <div class="form-stacked">
-    <div class="field">  
-      <%= f.label :receiver_id, "Who Was Paid" %>
-      <%= f.text_field :receiver_id %>
-    </div>  
-    <div class="field">
-      <%= f.label :total_amount %><br />
-      <%= f.text_field :total_amount %>
-    </div>
-    <div class="field">
-      <%= f.label :date_paid %><br />
-      <%= f.date_select :date_paid, :default => {:day => Time.now.day } %>
-    </div>
-    <div class="field">
-      <%= f.label :memo %><br />
-      <%= f.text_area :memo,:rows => 3 %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  </div>
+  <%= f.input :receiver_id, :label => 'Who Was Paid', :collection => @users, :label_method => :email, :value_method => :id -%>
+  <%= f.input :total_amount -%>
+  <%= f.input :date_paid, :as => :date, :default => {:day => Time.now.day }-%>
+  <%= f.input :memo, :rows => 3 -%>
+  <%= f.button :submit -%>
+
+
 <% end %>

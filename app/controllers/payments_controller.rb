@@ -28,6 +28,7 @@ class PaymentsController < ApplicationController
   def new
     @payment = Payment.new
     @previous_payments = current_user.payments
+    @users = User.all
     
     respond_to do |format|
       format.html # new.html.erb
@@ -45,6 +46,7 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(params[:payment])
     @previous_payments = current_user.payments
+    @users = User.all
 
     respond_to do |format|
       if @payment.save
