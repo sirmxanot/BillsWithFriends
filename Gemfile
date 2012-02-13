@@ -37,3 +37,4 @@ end
 
 gem 'devise'
 gem 'simple_form'
+gem 'twitter-bootstrap-rails'
