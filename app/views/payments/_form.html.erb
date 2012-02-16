@@ -17,7 +17,7 @@
 
   <%= f.input :receiver_id, :label => 'Who Was Paid', :collection => @users, :label_method => :drop_down_display, :value_method => :id -%>
   <%= f.input :total_amount -%>
-  <%= f.input :date_paid, :as => :date, :default => {:day => Time.now.day }-%>
+  <%= f.input :date_paid, :as => :date, :default => {:day => Time.now.day - 1}-%>
   <%= f.input :memo, :rows => 3 -%>
   <%= f.button :submit -%>
 
