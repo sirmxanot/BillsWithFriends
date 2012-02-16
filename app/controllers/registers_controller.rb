@@ -32,6 +32,10 @@ class RegistersController < ApplicationController
     
     @audit = Audit.audit_math(@you_owe_me, @payment)
 
+    @records = @you_owe_me + @payment
+
+    @sorted_records = @records.sort_by {|item| item.created_at}.reverse
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @register }
