@@ -15,8 +15,9 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :email, :password, :password_confirmation
   validates :email, :uniqueness => true
 
+  public
   def full_name
-    [first_name,last_name].join(' ')
+    "#{self.first_name} #{self.last_name}"
   end
 
   def drop_down_display
