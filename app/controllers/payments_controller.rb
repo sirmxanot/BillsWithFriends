@@ -39,6 +39,7 @@ class PaymentsController < ApplicationController
   # GET /payments/1/edit
   def edit
     @payment = Payment.find(params[:id])
+    @users = User.all
   end
 
   # POST /payments
