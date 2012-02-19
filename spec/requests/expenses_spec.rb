@@ -1,11 +1,13 @@
 require 'spec_helper'
 
 describe "Expenses" do
-  describe "GET /expenses" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get expenses_index_path
-      response.status.should be(200)
-    end
+  
+  describe "Expenses/index" do
+   	let(:user) {Factory(:user)}
+
+    it "should have the content 'Listing expenses'" do
+    	visit '/expenses'
+    	page.should have_content('Listing expenses')
+  	end
   end
 end
