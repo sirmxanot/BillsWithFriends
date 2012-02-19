@@ -1,51 +1,52 @@
-<%= form_for(@expense) do |f| %>
-  <% if @expense.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+<div class="container">
+  <%= simple_form_for(@expense) do |f| %>
+    <!--These errors aren't working with simple_form-->
+    <% if @expense.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
 
-      <ul>
-      <% @expense.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <ul>
+        <% @expense.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.hidden_field :id -%>
+    <%= f.hidden_field :user_id, :value => current_user.id -%>
+    <%= f.hidden_field :created_at -%>
+
+    
+
+    <div class="form-horizontal">
+      <div class="field">
+        <%= f.input :expense_name %>
+      </div>
+
+      <div class="field">
+        <%= f.input :date_incurred, :default => {:day => Time.now.day - 1 }  %>
+      </div>
+
+      <div class="field">
+        <%= f.input :total_amount%>
+      </div>
+
+      <div class="field">
+        <%= f.input :memo, :rows => 3 %>
+      </div>
+
+    <h2>Participants</h2>
+      <%= f.fields_for :you_owe_mes do |builder| %>
+        <%= render 'you_owe_me_fields', :f => builder  %>
       <% end %>
-      </ul>
+    
+    <p><%= link_to_add_fields "Add Participant", f, :you_owe_mes %></p>
+    
+      <div class="actions">
+        <%= f.button :submit %>
+      </div>
     </div>
+
   <% end %>
-
-  <%= f.hidden_field :id -%>
-  <%= f.hidden_field :user_id, :value => current_user.id -%>
-  <%= f.hidden_field :created_at -%>
-
-  
-
-  <div class="form-stacked">
-    <div class="field">
-      <%= f.label :expense_name %><br />
-      <%= f.text_field :expense_name %>
-    </div>
-
-    <div class="field">
-      <%= f.label :date_incurred %><br />
-      <%= f.date_select :date_incurred, :default => {:day => Time.now.day - 1 }  %>
-    </div>
-
-    <div class="field">
-      <%= f.label :total_amount %><br />
-      <%= f.text_field :total_amount%>
-    </div>
-
-    <div class="field">
-      <%= f.label :memo %><br />
-      <%= f.text_area :memo, :rows => 3 %>
-    </div>
-
-  <h2>Participants</h2>
-  <%= f.fields_for :you_owe_mes do |builder| %>
-    <%= render 'you_owe_me_fields', :f => builder  %>
-  <% end %>
-  <p><%= link_to_add_fields "Add Participant", f, :you_owe_mes %></p>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  </div>
-
-<% end %>
+</div>

@@ -29,6 +29,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.new
     @previous_expenses = current_user.expenses
     3.times {@expense.you_owe_mes.build}
+    @users = User.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,6 +40,7 @@ class ExpensesController < ApplicationController
   # GET /expenses/1/edit
   def edit
     @expense = Expense.find(params[:id])
+    @users = User.all
   end
 
   # POST /expenses
@@ -46,6 +48,7 @@ class ExpensesController < ApplicationController
   def create
     @expense = Expense.new(params[:expense])
     @previous_expenses = current_user.expenses
+    @users = User.all
     
     respond_to do |format|
       if @expense.save

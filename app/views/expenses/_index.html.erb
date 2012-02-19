@@ -1,35 +1,41 @@
-<h1>Expenses That You've Created</h1>
+<div class="container">
+  <h1>Expenses That You've Created</h1>
 
-<table class="zebra-striped">
-  <tr>
-    <th>Id</th>
-    <th>Expense name</th>
-    <th>Owner</th>
-    <th>Date incurred</th>
-    <th>Created at</th>
-    <th>Total amount</th>
-    <th>Memo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <table class="table table-bordered dotmatrix-striped">
+    <thead>
+        <tr>
+          <th>Id</th>
+          <th>Expense name</th>
+          <th>Owner</th>
+          <th>Date incurred</th>
+          <th>Created at</th>
+          <th>Total amount</th>
+          <th>Memo</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+    </thead>
 
-<% @previous_expenses.each do |expense| %>
-  <tr>
-    <td><%= expense.id %></td>
-    <td><%= expense.expense_name %></td>
-    <td><%= expense.user_id %></td>
-    <td><%= expense.date_incurred %></td>
-    <td><%= expense.created_at %></td>
-    <td><%= expense.total_amount %></td>
-    <td><%= expense.memo %></td>
-    <td><%= link_to 'Show', expense %></td>
-    <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-    <td><%= link_to 'Destroy', expense, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+    <tbody>
+      <% @previous_expenses.each do |expense| %>
+        <tr>
+          <td><%= expense.id %></td>
+          <td><%= expense.expense_name %></td>
+          <td><%= expense.user_id %></td>
+          <td><%= expense.date_incurred %></td>
+          <td><%= expense.created_at %></td>
+          <td><%= expense.total_amount %></td>
+          <td><%= expense.memo %></td>
+          <td><%= link_to 'Show', expense %></td>
+          <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+          <td><%= link_to 'Destroy', expense, confirm: 'Are you sure?', method: :delete %></td>
+        </tr>
+      <% end %>
+      </tbody>
+  </table>
 
-<br />
+  <br />
 
-<%= link_to 'New Expense', new_expense_path %>
+  <%= link_to 'New Expense', new_expense_path %>
+</div>
