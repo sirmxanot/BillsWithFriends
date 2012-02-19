@@ -1,59 +1,68 @@
+<div class="container">
 <h1>Summary</h1>
+<div class="graph_paper">
+    
 
-<h2>Credit that You've Extended</h2>
+    <h2>Credit that You've Extended</h2>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Creditor</th>
-    <th>Debtor</th>
-    <th>Credit extended</th>
-    <th>Updated at</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Creditor</th>
+          <th>Debtor</th>
+          <th>Credit extended</th>
+          <th>Updated at</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+    
+    <tbody>  
+      <% @owes_user.each do |register| %>
+        <tr>
+          <td><%= register.id %></td>
+          <td><%= register.creditor_id %></td>
+          <td><%= register.debtor_id %></td>
+          <td><%= register.credit_extended %></td>
+          <td><%= register.updated_at %></td>
+          <td><%= link_to 'Show', register %></td>
+          <td><%= link_to 'Audit', audit_register_path(register) %></td>
+        </tr>
+      <% end %>
+    </tbody> 
+    </table>
 
-<% @owes_user.each do |register| %>
-  <tr>
-    <td><%= register.id %></td>
-    <td><%= register.creditor_id %></td>
-    <td><%= register.debtor_id %></td>
-    <td><%= register.credit_extended %></td>
-    <td><%= register.updated_at %></td>
-    <td><%= link_to 'Show', register %></td>
-    <td><%= link_to 'Audit', audit_register_path(register) %></td>
-  </tr>
-<% end %>
-</table>
+    <h2>Debt that You've Incurred</h2>
 
-<h2>Debt that You've Incurred</h2>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Creditor</th>
+        <th>Debtor</th>
+        <th>Credit extended</th>
+        <th>Updated at</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Creditor</th>
-    <th>Debtor</th>
-    <th>Credit extended</th>
-    <th>Updated at</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @user_owes.each do |register| %>
-  <tr>
-    <td><%= register.id %></td>
-    <td><%= register.creditor_id %></td>
-    <td><%= register.debtor_id %></td>
-    <td><%= register.credit_extended %></td>
-    <td><%= register.updated_at %></td>
-    <td><%= link_to 'Show', register %></td>
-    <td><%= link_to 'Audit', audit_register_path(register) %></td>
-  </tr>
-<% end %>
-</table>
-
+    <% @user_owes.each do |register| %>
+      <tr>
+        <td><%= register.id %></td>
+        <td><%= register.creditor_id %></td>
+        <td><%= register.debtor_id %></td>
+        <td><%= register.credit_extended %></td>
+        <td><%= register.updated_at %></td>
+        <td><%= link_to 'Show', register %></td>
+        <td><%= link_to 'Audit', audit_register_path(register) %></td>
+      </tr>
+    <% end %>
+    </table>
+</div>
+</div>
 <br />
+

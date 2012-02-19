@@ -1,66 +1,67 @@
-<h1>Ledger</h1>
+<div class="container">
+  <h1>Ledger</h1>
+  <table class="table table-bordered dotmatrix-striped">
+    <thead class="dotmatrix-striped">
+      <tr>
+        <th>Class</th>
+        <th>Id</th>
+        <th>Creditor</th>
+        <th>Debtor</th>
+        <th>Amount</th>
+        <th>Updated at</th>
+      </tr>
+    </thead>
 
-
-<table class="zebra-striped">
-  <tr>
-    <th>Class</th>
-    <th>Id</th>
-    <th>Creditor</th>
-    <th>Debtor</th>
-    <th>Amount</th>
-    <th>Updated at</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @sorted_ledger.each do |ledger| %>
-  <tr>
-    <% if ledger.class == Payment %>
-      <% if ledger.user_id == current_user.id %>
-        <td><%= ledger.class %></td>
-        <td><%= ledger.id %></td>
-        <td><%= ledger.receiver_id  %></td>
-        <td><%= ledger.user_id %></td>
-        <td><%= ledger.total_amount*(-1) %></td>
-        <td><%= ledger.updated_at.to_date.to_formatted_s(:short) %></td>
-      <% elsif ledger.receiver_id == current_user.id %>
-        <td><%= ledger.class %></td>
-        <td><%= ledger.id %></td>
-        <td><%= ledger.user_id %></td>
-        <td><%= ledger.receiver_id %></td>
-        <td><%= ledger.total_amount %></td>
-        <td><%= ledger.updated_at.to_date.to_formatted_s(:short) %></td>
-      <% else %>
-        <td>Error in the view somewhere</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+    <tbody>
+      <% @sorted_ledger.each do |ledger| %>
+        <tr>
+          <% if ledger.class == Payment %>
+            <% if ledger.user_id == current_user.id %>
+              <td><%= ledger.class %></td>
+              <td><%= ledger.id %></td>
+              <td><%= ledger.receiver_id  %></td>
+              <td><%= ledger.user_id %></td>
+              <td><%= ledger.total_amount*(-1) %></td>
+              <td><%= ledger.updated_at.to_date.to_formatted_s(:short) %></td>
+            <% elsif ledger.receiver_id == current_user.id %>
+              <td><%= ledger.class %></td>
+              <td><%= ledger.id %></td>
+              <td><%= ledger.user_id %></td>
+              <td><%= ledger.receiver_id %></td>
+              <td><%= ledger.total_amount %></td>
+              <td><%= ledger.updated_at.to_date.to_formatted_s(:short) %></td>
+            <% else %>
+              <td>Error in the view somewhere</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            <% end %>
+          <% elsif ledger.class == Expense %>
+            <td><%= ledger.class %></td>
+            <td><%= ledger.id %></td>
+            <td><%= ledger.user_id %></td>
+            <td><%= link_to 'Click Here', ledger %></td>
+            <td><%= ledger.total_amount %></td>
+            <td><%= ledger.updated_at.to_date.to_formatted_s(:short)%></td>
+          <% elsif ledger.class == YouOweMe %>
+            <td><%= ledger.class %></td>
+            <td><%= ledger.id %></td>
+            <td><%= ledger.creditor_id %></td>
+            <td><%= ledger.debtor_id %></td>
+            <td><%= ledger.amount*(-1) %></td>
+            <td><%= ledger.updated_at.to_date.to_formatted_s(:short) %></td>
+          <% else %>
+            <td><%= ledger.class %></td>
+            <td>Attribute of Wrong Class Here</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          <% end %>
+        </tr>  
       <% end %>
-    <% elsif ledger.class == Expense %>
-      <td><%= ledger.class %></td>
-      <td><%= ledger.id %></td>
-      <td><%= ledger.user_id %></td>
-      <td> Click Here </td>
-      <td><%= ledger.total_amount %></td>
-      <td><%= ledger.updated_at.to_date.to_formatted_s(:short)%></td>
-    <% elsif ledger.class == YouOweMe %>
-      <td><%= ledger.class %></td>
-      <td><%= ledger.id %></td>
-      <td><%= ledger.creditor_id %></td>
-      <td><%= ledger.debtor_id %></td>
-      <td><%= ledger.amount*(-1) %></td>
-      <td><%= ledger.updated_at.to_date.to_formatted_s(:short) %></td>
-    <% else %>
-      <td><%= ledger.class %></td>
-      <td>Attribute of Wrong Class Here</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    <% end %>
-  </tr>  
-<% end %>
-</table>
+    </tbody>
+  </table>
+</div>

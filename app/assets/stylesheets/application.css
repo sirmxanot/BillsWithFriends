@@ -105,4 +105,16 @@ body {
   background-color: #FFFEFA;
 }
 
+.pull-right {
+  text-align: right;
+}
+
+
+.form-check .control-label {
+  float: left;
+  width: 140px;
+  padding-top: 5px;
+  text-align: right;
+
+
 
