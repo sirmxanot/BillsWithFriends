@@ -20,10 +20,10 @@
     <% @previous_payments.each do |payment| %>
       <tr>
         <td><%= payment.id %></td>
-        <td><%= payment.user_id %></td>
-        <td><%= payment.receiver_id %></td>
-        <td><%= payment.date_paid %></td>
-        <td><%= payment.created_at %></td>
+        <td><%= User.find(payment.user_id).full_name %></td>
+        <td><%= User.find(payment.receiver_id).full_name %></td>
+        <td><%= payment.date_paid.to_date.to_formatted_s(:long) %></td>
+        <td><%= payment.created_at.to_date.to_formatted_s(:long)  %></td>
         <td><%= payment.total_amount %></td>
         <td><%= payment.memo %></td>
         <td><%= link_to 'Show', payment %></td>
