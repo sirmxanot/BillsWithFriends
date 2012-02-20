@@ -1,23 +1,11 @@
   <% if @payment.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
-
-        <ul>
+      <div id="error_explanation" class="alert alert-error">
         <% @payment.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-        </ul>
       </div>
     <% end %>
-    <% flash.each do |name, msg| %>
-  <% if msg[0..4] == "Error" %>
-    <div class="alert alert-error fade in">
-  <% else %>
-    <div class="alert alert-success fade in">
-  <% end %>
-  <a class="close" data-dismiss="alert" href="#">&times;</a>
-  <%= msg %>
-<% end %>
+    
 <div class="check">
   <%= simple_form_for @payment do |f| %>
     

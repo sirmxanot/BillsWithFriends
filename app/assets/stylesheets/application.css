@@ -68,10 +68,38 @@ body {
                    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px) -1px -1px / 20px,
                    linear-gradient(0, rgba(255,255,255,.3) 1px, transparent 1px) -1px -1px / 20px, #269;
 }
+.receipt {
+  max-width: 365px;
+  min-height: 200px;
+  margin-left: 20px;
+  margin-right: auto;
+  *zoom: 1;
+  padding: 10px;
+  background-color: #FFFEFA;
+}
+
+.receipt input {
+  font-size: 18px;
+  border: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #FFFEFA;
+   -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
 
 .check {
   max-width: 600px;
   min-height: 240px;
+  font-size: 18px;
+  line-height: 29px;
   margin-left: auto;
   margin-right: auto;
   *zoom: 1;
@@ -94,9 +122,25 @@ body {
   -webkit-background-size: 3px 3px;
   background-size: 3px 3px;
 }
+.check input {
+  font-size: 18px;
+  border: 1px solid;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: transparent;
+   -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
 
 .business_card {
-  width: 350px;
+  max-width: 365px;
   height: 200px;
   margin-left: auto;
   margin-right: auto;
@@ -104,9 +148,35 @@ body {
   padding: 10px;
   background-color: #FFFEFA;
 }
+.business_card input {
+  font-size: 18px;
+  border: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #FFFEFA;
+   -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+.hide-border {
+  border: 0px;
+}
 
 .pull-right {
   text-align: right;
+}
+
+.pull-center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -115,6 +185,12 @@ body {
   width: 140px;
   padding-top: 5px;
   text-align: right;
+}
+
+.underline {
+text-decoration: underline;
+}
+
 
 
 

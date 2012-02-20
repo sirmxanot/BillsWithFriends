@@ -2,14 +2,10 @@
   <%= simple_form_for(@expense) do |f| %>
     <!--These errors aren't working with simple_form-->
     <% if @expense.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
-
-        <ul>
+      <div id="error_explanation" class="alert alert-error">
         <% @expense.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-        </ul>
       </div>
     <% end %>
 
@@ -17,23 +13,29 @@
     <%= f.hidden_field :user_id, :value => current_user.id -%>
     <%= f.hidden_field :created_at -%>
 
-    
-
-    <div class="form-horizontal">
-      <div class="field">
-        <%= f.input :expense_name %>
+    <div class="receipt">
+      <div class="row-fluid">  
+        <div class="span12">
+          <h1><%= f.input :expense_name, :label => false, :placeholder => 'Expense Name', :input_html => { :class => 'input-xlarge' } %></h1>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.input :date_incurred, :default => {:day => Time.now.day - 1 }  %>
+      <div class="row-fluid">
+        <div class="span12">
+          <%= f.input :date_incurred, :default => {:day => Time.now.day - 1 }, :input_html => { :class => 'input-small' }  %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.input :total_amount%>
+      <div class="row-fluid">
+        <div class="span6 pull-right">
+          <%= f.input :total_amount, :label => false, :placeholder => '$ XXX.XX', :input_html => { :class => 'input-small' }%>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.input :memo, :rows => 3 %>
+      <div class="row-fluid">
+        <div class="span12">
+          <%= f.input :memo, :label => false, :placeholder => 'Memo goes here if you want one', :input_html => { :id => "textarea", :class => 'input-xlarge' }%>
+        </div>
       </div>
 
     <h2>Participants</h2>

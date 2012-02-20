@@ -1,40 +1,45 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Id:</b>
-  <%= @payment.id %>
-</p>
-
-<p>
-  <b>Owner:</b>
-  <%= @payment.user_id %>
-</p>
-
-<p>
-  <b>Receiver:</b>
-  <%= @payment.receiver_id %>
-</p>
-
-<p>
-  <b>Date paid:</b>
-  <%= @payment.date_paid %>
-</p>
-
-<p>
-  <b>Created at:</b>
-  <%= @payment.created_at %>
-</p>
-
-<p>
-  <b>Total amount:</b>
-  <%= @payment.total_amount %>
-</p>
-
-<p>
-  <b>Memo:</b>
-  <%= @payment.memo %>
-</p>
-
-
+<div class="check">
+ 
+  <div class="row-fluid">
+    <div class="span6">
+      <%= User.find(@payment.user_id).full_name.capitalize -%>
+    </div>
+    <div class="span6 pull-right">
+      <%= "1234"-%>
+    </div>
+  </div>
+  <div class="row-fluid underline">
+    <div class="span12 pull-right">
+      <%= "Date: #{@payment.date_paid.to_date.to_formatted_s(:long)}" -%>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span6 underline">
+      <%= "Receiver: #{User.find(@payment.receiver_id).full_name.capitalize}" -%>
+    </div>
+    <div class="span6 pull-right">
+      <%= "$ #{@payment.total_amount}" -%>
+    </div>
+  </div>
+    
+  <div class="row-fluid">
+    <div class="span12  underline">
+      <%= " #{@payment.total_amount} Dollars" -%>
+    </div>
+  </div>
+  
+  <div class="row-fluid">
+    <div class="span6 underline">
+      <%= "Memo: #{@payment.memo}" %>
+    </div>
+    <div class="span6">
+      <div class="actions span6 pull-right">
+        <%= User.find(@payment.user_id).full_name.capitalize-%>
+      </div>
+    </div>  
+  </div>
+</div>
+ 
 <%= link_to 'Edit', edit_payment_path(@payment) %> |
 <%= link_to 'Back', payments_path %>

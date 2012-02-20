@@ -1,9 +1,13 @@
-<div class="fields">  
+<div class="row-fluid">
   <%= f.hidden_field :id -%>
   <%= f.hidden_field :expense_id, :value => @expense.id -%>
   <%= f.hidden_field :creditor_id, :value => current_user.id -%>
   <%= f.hidden_field :created_at -%>
-  <%= f.input :debtor_id, :label => "Participant", :collection => @users, :label_method => :drop_down_display, :value_method => :id -%>
-  <%= f.input :amount -%>
-  <%= link_to_remove_fields "Remove", f -%>
+  <div class="span6">
+	  <%= f.input :debtor_id, :label => "Participant", :collection => @users, :label_method => :drop_down_display, :value_method => :id, :label => false, :placeholder => 'Debtor Name', :input_html => { :class => 'input-medium' } -%>
+	</div>
+	<div class="span4">
+	  <%= f.input :amount, :label => false, :placeholder => '$ XXX.XX', :input_html => { :class => 'input-small' } -%>
+	</div>
+	<%= link_to_remove_fields "Remove", f -%>
 </div>

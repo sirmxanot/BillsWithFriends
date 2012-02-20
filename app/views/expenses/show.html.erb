@@ -1,45 +1,42 @@
 <p id="notice"><%= notice %></p>
+<div class="receipt">
 
-<p>
-  <b>Id:</b>
-  <%= @expense.id %>
-</p>
+  <p>
+    <b>Expense name:</b>
+    <%= @expense.expense_name %>
+  </p>
 
-<p>
-  <b>Expense name:</b>
-  <%= @expense.expense_name %>
-</p>
+  <p>
+    <b>Owner:</b>
+    <%= User.find(@expense.user_id).full_name.capitalize %>
+  </p>
 
-<p>
-  <b>Owner:</b>
-  <%= @expense.user_id %>
-</p>
+  <p>
+    <b>Date incurred:</b>
+    <%= @expense.date_incurred.to_date.to_formatted_s(:long) %>
+  </p>
 
-<p>
-  <b>Date incurred:</b>
-  <%= @expense.date_incurred %>
-</p>
+  <p>
+    <b>Created at:</b>
+    <%= @expense.created_at.to_date.to_formatted_s(:long) %>
+  </p>
 
-<p>
-  <b>Created at:</b>
-  <%= @expense.created_at %>
-</p>
+  <p>
+    <b>Total amount:</b>
+    <%= @expense.total_amount %>
+  </p>
 
-<p>
-  <b>Total amount:</b>
-  <%= @expense.total_amount %>
-</p>
+  <p>
+    <b>Memo:</b>
+    <%= @expense.memo %>
+  </p>
 
-<p>
-  <b>Memo:</b>
-  <%= @expense.memo %>
-</p>
-
-<ol>
-  <% for you_owe_mes in @expense.you_owe_mes %>
-    <li><b> Debtor Id: </b> <%= you_owe_mes.debtor_id %><b> , Amount: </b> <%= you_owe_mes.amount %></li>
-  <% end %>
-</ol>
+  <ol>
+    <% for you_owe_mes in @expense.you_owe_mes %>
+      <li><b> Debtor Name: </b> <%= User.find(you_owe_mes.debtor_id).full_name.capitalize %><b> , Amount: </b> <%= you_owe_mes.amount %></li>
+    <% end %>
+  </ol>
+</div>
 
 <%= link_to 'Edit', edit_expense_path(@expense) %> |
 <%= link_to 'Back', expenses_path %>
