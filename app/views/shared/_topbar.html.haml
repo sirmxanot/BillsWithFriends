@@ -1,0 +1,24 @@
+.navbar
+  .navbar-inner
+    .container
+      %a{:class => "brand", :href =>"#"} BillsWithFriends
+      %ul.nav
+        %li{:class => request.path == summary_path ? "active" : ""}
+          = link_to "Summary", summary_path
+        %li{:class => request.path == new_expense_path ? "active" : ""}
+          = link_to "Record Expense", new_expense_path
+        %li{:class => request.path == new_payment_path ? "active" : ""}
+          = link_to "Record Payment", new_payment_path
+        %li{:class => request.path == ledger_path ? "active" : ""}
+          = link_to "Ledger", ledger_path
+        %li{:class => request.path == expenses_path ? "active" : ""}
+          = link_to "Expenses", expenses_path
+
+        - if current_user.present?
+          %li{:class => request.path == logout_path ? "active" : ""}
+            = link_to "Log Out", logout_path
+
+        - else
+          %li{:class => request.fullpath == new_user_session_path ? "active" : ""}
+            = link_to "Login", new_user_session_path
+

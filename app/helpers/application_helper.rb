@@ -10,4 +10,17 @@ module ApplicationHelper
     end
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
+
+   def bootstrap_type(type)
+    case type
+    when :error
+      "alert-error"
+    when :notice
+      "alert-info"
+    when :success
+      "alert-success"
+    else
+      type.to_s
+    end
+  end
 end

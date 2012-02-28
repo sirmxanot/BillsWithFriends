@@ -1,0 +1,4 @@
+- flash.each do |type, message|
+  %div.alert{ "data-alert" => "alert", :class => bootstrap_type(type) }
+    %a.close{:href => "#", :"data-dismiss" => "alert"} ×
+    %p= message

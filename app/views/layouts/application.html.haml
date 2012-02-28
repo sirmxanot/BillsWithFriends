@@ -1,0 +1,14 @@
+!!! 5
+%html
+  %head
+    %title BillsWithFriends
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0;" />
+  %body
+    = render "shared/topbar"
+    .container
+      - if flash.present?
+        = render :partial => "shared/flash", :locals => {:flash => flash}
+      .container= yield
