@@ -40,6 +40,11 @@ class PaymentsController < ApplicationController
   def edit
     @payment = Payment.find(params[:id])
     @users = User.all
+
+    if @payment.user_id != current_user.id
+      flash[:error] = "You can't edit a payment that you didn't create."
+      redirect_to @payment
+    end 
   end
 
   # POST /payments
@@ -65,26 +70,31 @@ class PaymentsController < ApplicationController
   def update
     @payment = Payment.find(params[:id])
 
-    respond_to do |format|
+    if @payment.user_id == current_user.id
       if @payment.update_attributes(params[:payment])
-        format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
-        format.json { head :ok }
+        flash[:success] = 'Payment was successfully updated.'
       else
-        format.html { render action: "edit" }
-        format.json { render json: @payment.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
+    else
+      flash[:error] = "You can't update a payment that you didn't create."
     end
+
+    redirect_to @payment
   end
 
   # DELETE /payments/1
   # DELETE /payments/1.json
   def destroy
     @payment = Payment.find(params[:id])
-    @payment.destroy
-
-    respond_to do |format|
-      format.html { redirect_to payments_url }
-      format.json { head :ok }
+    
+    if @payment.user_id == current_user.id
+      @payment.destroy
+      flash[:success] = "You have successfully deleted the payment."
+    else
+      flash[:error] = "You can't delete payments that you didn't create."
     end
+
+    redirect_to payments_url
   end
 end
