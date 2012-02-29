@@ -24,7 +24,7 @@
         <td><%= User.find(payment.receiver_id).full_name %></td>
         <td><%= payment.date_paid.to_date.to_formatted_s(:long) %></td>
         <td><%= payment.created_at.to_date.to_formatted_s(:long)  %></td>
-        <td><%= payment.total_amount %></td>
+        <td><%= "$#{payment.total_amount}" %></td>
         <td><%= payment.memo %></td>
         <td><%= link_to 'Show', payment %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment) %></td>

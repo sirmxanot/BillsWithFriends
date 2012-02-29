@@ -25,7 +25,7 @@
           <td><%= User.find(expense.user_id).full_name %></td>
           <td><%= expense.date_incurred.to_formatted_s(:long)  %></td>
           <td><%= expense.created_at.to_date.to_formatted_s(:long)  %></td>
-          <td><%= expense.total_amount %></td>
+          <td><%= "$#{expense.total_amount}" %></td>
           <td><%= expense.memo %></td>
           <td><%= link_to 'Show', expense %></td>
           <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
