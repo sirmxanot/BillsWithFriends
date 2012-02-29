@@ -41,6 +41,11 @@ class ExpensesController < ApplicationController
   def edit
     @expense = Expense.find(params[:id])
     @users = User.all
+
+    if @expense.user_id != current_user.id
+      flash[:error] = "You can't edit an expense that you didn't create."
+      redirect_to @expense
+    end  
   end
 
   # POST /expenses
@@ -66,26 +71,31 @@ class ExpensesController < ApplicationController
   def update
     @expense = Expense.find(params[:id])
 
-    respond_to do |format|
+    if @expense.user_id == current_user.id
       if @expense.update_attributes(params[:expense])
-        format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
-        format.json { head :ok }
+        flash[:success] = 'Expense was successfully updated.'
       else
-        format.html { render action: "edit" }
-        format.json { render json: @expense.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
+    else
+      flash[:error] = "You can't update an expense that you didn't create."
     end
+
+    redirect_to @expense
   end
 
   # DELETE /expenses/1
   # DELETE /expenses/1.json
   def destroy
     @expense = Expense.find(params[:id])
-    @expense.destroy
 
-    respond_to do |format|
-      format.html { redirect_to expenses_url }
-      format.json { head :ok }
+    if @expense.user_id == current_user.id
+      @expense.destroy
+      flash[:success] = "You have successfully deleted the expense."
+    else
+      flash[:error] = "You can't delete expenses that you didn't create."
     end
+
+    redirect_to expenses_url
   end
 end
