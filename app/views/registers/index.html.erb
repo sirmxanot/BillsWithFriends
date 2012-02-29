@@ -8,8 +8,6 @@
     <th>Credit extended</th>
     <th>Updated at</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @registers.each do |register| %>
@@ -20,8 +18,6 @@
     <td><%= register.credit_extended %></td>
     <td><%= register.updated_at %></td>
     <td><%= link_to 'Show', register %></td>
-    <td><%= link_to 'Edit', edit_register_path(register) %></td>
-    <td><%= link_to 'Destroy', register, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
