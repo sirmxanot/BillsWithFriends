@@ -23,4 +23,50 @@ module ApplicationHelper
       type.to_s
     end
   end
+
+  def edit_decider(record)
+    case record
+    when Payment
+      if record.user_id == current_user.id
+        link_to 'Edit', edit_payment_path(record)
+      end
+    when Expense
+      if record.user_id == current_user.id
+        link_to 'Edit', edit_expense_path(record)
+      end
+    when User
+      if record.id == current_user.id
+        link_to 'Edit', edit_user_path(record)
+      end
+    when YouOweMe
+      if record.creditor_id == current_user.id
+        link_to 'Edit', edit_you_owe_me_path(record)
+      end
+    else
+      "edit_decider doesn't work with objects of class #{record.class}"
+    end
+  end
+
+  def destroy_decider(record)
+    case record
+    when Payment
+      if record.user_id == current_user.id
+        link_to 'Destroy', record, confirm: 'Are you sure?', method: :delete
+      end
+    when Expense
+      if record.user_id == current_user.id
+        link_to 'Destroy', record, confirm: 'Are you sure?', method: :delete
+      end
+    when User
+      if record.id == current_user.id
+        link_to 'Destroy', record, confirm: 'Are you sure?', method: :delete
+      end
+    when YouOweMe
+      if record.creditor_id == current_user.id
+        link_to 'Destroy', record, confirm: 'Are you sure?', method: :delete
+      end
+    else
+      "edestroy_decider doesn't work with objects of class #{record.class}"
+    end
+  end
 end
