@@ -13,54 +13,10 @@
     </thead>
 
     <tbody>
-      <% @sorted_ledger.each do |ledger| %>
+      <% @sorted_ledger.each do |record| %>
         <tr>
-          <% if ledger.class == Payment %>
-            <% if ledger.user_id == current_user.id %>
-              <td><%= ledger.class %></td>
-              <td><%= ledger.id %></td>
-              <td><%= ledger.receiver_id  %></td>
-              <td><%= ledger.user_id %></td>
-              <td><%= ledger.total_amount*(-1) %></td>
-              <td><%= ledger.updated_at.to_date.to_formatted_s(:short) %></td>
-            <% elsif ledger.receiver_id == current_user.id %>
-              <td><%= ledger.class %></td>
-              <td><%= ledger.id %></td>
-              <td><%= ledger.user_id %></td>
-              <td><%= ledger.receiver_id %></td>
-              <td><%= ledger.total_amount %></td>
-              <td><%= ledger.updated_at.to_date.to_formatted_s(:short) %></td>
-            <% else %>
-              <td>Error in the view somewhere</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            <% end %>
-          <% elsif ledger.class == Expense %>
-            <td><%= ledger.class %></td>
-            <td><%= ledger.id %></td>
-            <td><%= ledger.user_id %></td>
-            <td><%= link_to 'Click Here', ledger %></td>
-            <td><%= ledger.total_amount %></td>
-            <td><%= ledger.updated_at.to_date.to_formatted_s(:short)%></td>
-          <% elsif ledger.class == YouOweMe %>
-            <td><%= ledger.class %></td>
-            <td><%= ledger.id %></td>
-            <td><%= ledger.creditor_id %></td>
-            <td><%= ledger.debtor_id %></td>
-            <td><%= ledger.amount*(-1) %></td>
-            <td><%= ledger.updated_at.to_date.to_formatted_s(:short) %></td>
-          <% else %>
-            <td><%= ledger.class %></td>
-            <td>Attribute of Wrong Class Here</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          <% end %>
-        </tr>  
+          <%= ledger_builder(record) %>
+        </tr> 
       <% end %>
     </tbody>
   </table>
