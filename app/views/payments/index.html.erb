@@ -24,8 +24,8 @@
     <td><%= payment.total_amount %></td>
     <td><%= payment.memo %></td>
     <td><%= link_to 'Show', payment %></td>
-    <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-    <td><%= link_to 'Destroy', payment, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= edit_decider(payment) %></td>
+    <td><%= destroy_decider(payment) %></td>
   </tr>
 <% end %>
 </table>

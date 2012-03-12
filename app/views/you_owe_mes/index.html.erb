@@ -22,8 +22,8 @@
     <td><%= you_owe_me.creditor_id %></td>
     <td><%= you_owe_me.debtor_id %></td>
     <td><%= link_to 'Show', you_owe_me %></td>
-    <td><%= link_to 'Edit', edit_you_owe_me_path(you_owe_me) %></td>
-    <td><%= link_to 'Destroy', you_owe_me, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= edit_decider(you_owe_me) %></td>
+    <td><%= destroy_decider(you_owe_me) %></td>
   </tr>
 <% end %>
 </table>

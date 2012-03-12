@@ -28,8 +28,8 @@
           <td><%= "$#{expense.total_amount}" %></td>
           <td><%= expense.memo %></td>
           <td><%= link_to 'Show', expense %></td>
-          <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-          <td><%= link_to 'Destroy', expense, confirm: 'Are you sure?', method: :delete %></td>
+          <td><%= edit_decider(expense) %></td>
+          <td><%= destroy_decider(expense) %></td>
         </tr>
       <% end %>
       </tbody>
