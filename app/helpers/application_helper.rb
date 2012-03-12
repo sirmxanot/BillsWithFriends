@@ -28,19 +28,19 @@ module ApplicationHelper
     case record
     when Payment
       if record.user_id == current_user.id
-        link_to 'Edit', edit_payment_path(record)
+        link_to tag("i", :class => 'icon-pencil'), edit_payment_path(record)
       end
     when Expense
       if record.user_id == current_user.id
-        link_to 'Edit', edit_expense_path(record)
+        link_to tag("i", :class => 'icon-pencil'), edit_expense_path(record)
       end
     when User
       if record.id == current_user.id
-        link_to 'Edit', edit_user_path(record)
+        link_to tag("i", :class => 'icon-pencil'), edit_user_path(record)
       end
     when YouOweMe
       if record.creditor_id == current_user.id
-        link_to 'Edit', edit_you_owe_me_path(record)
+        link_to tag("i", :class => 'icon-pencil'), edit_you_owe_me_path(record)
       end
     else
       "edit_decider doesn't work with objects of class #{record.class}"
@@ -51,19 +51,19 @@ module ApplicationHelper
     case record
     when Payment
       if record.user_id == current_user.id
-        link_to 'Destroy', record, confirm: 'Are you sure?', method: :delete
+        link_to tag("i", :class => 'icon-trash'), record, confirm: 'Are you sure you want to delete this item?', method: :delete
       end
     when Expense
       if record.user_id == current_user.id
-        link_to 'Destroy', record, confirm: 'Are you sure?', method: :delete
+        link_to tag("i", :class => 'icon-trash'), record, confirm: 'Are you sure you want to delete this item?', method: :delete
       end
     when User
       if record.id == current_user.id
-        link_to 'Destroy', record, confirm: 'Are you sure?', method: :delete
+        link_to tag("i", :class => 'icon-trash'), record, confirm: 'Are you sure you want to delete this item?', method: :delete
       end
     when YouOweMe
       if record.creditor_id == current_user.id
-        link_to 'Destroy', record, confirm: 'Are you sure?', method: :delete
+        link_to tag("i", :class => 'icon-trash'), record, confirm: 'Are you sure you want to delete this item?', method: :delete
       end
     else
       "edestroy_decider doesn't work with objects of class #{record.class}"
