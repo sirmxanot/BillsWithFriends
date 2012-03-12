@@ -37,6 +37,11 @@ class YouOweMesController < ApplicationController
   # GET /you_owe_mes/1/edit
   def edit
     @you_owe_me = YouOweMe.find(params[:id])
+
+     if @you_owe_me.creditor_id != current_user.id
+      flash[:error] = "You can't edit a debt that you didn't create."
+      redirect_to @you_owe_me
+    end 
   end
 
   # POST /you_owe_mes
@@ -60,26 +65,31 @@ class YouOweMesController < ApplicationController
   def update
     @you_owe_me = YouOweMe.find(params[:id])
 
-    respond_to do |format|
+    if @you_owe_me.creditor_id == current_user.id
       if @you_owe_me.update_attributes(params[:you_owe_me])
-        format.html { redirect_to @you_owe_me, notice: 'You owe me was successfully updated.' }
-        format.json { head :ok }
+        flash[:success] = 'Debt was successfully updated.'
       else
-        format.html { render action: "edit" }
-        format.json { render json: @you_owe_me.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
+    else
+      flash[:error] = "You can't update a debt that you didn't create."
     end
+
+    redirect_to @you_owe_me
   end
 
   # DELETE /you_owe_mes/1
   # DELETE /you_owe_mes/1.json
   def destroy
     @you_owe_me = YouOweMe.find(params[:id])
-    @you_owe_me.destroy
-
-    respond_to do |format|
-      format.html { redirect_to you_owe_mes_url }
-      format.json { head :ok }
+    
+    if @you_owe_me.creditor_id == current_user.id
+      @you_owe_me.destroy
+      flash[:success] = "You have successfully deleted the debt."
+    else
+      flash[:error] = "You can't delete debts that you didn't create."
     end
+
+    redirect_to you_owe_me_url
   end
 end
