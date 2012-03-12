@@ -22,7 +22,7 @@
 
       <div class="row-fluid">
         <div class="span12">
-          <%= f.input :date_incurred, :default => {:day => Time.now.day - 1 }, :input_html => { :class => 'input-small' }  %>
+          <%= f.input :date_incurred, :default => 1.day.ago, :input_html => { :class => 'input-small' }  %>
         </div>
       </div>
 
