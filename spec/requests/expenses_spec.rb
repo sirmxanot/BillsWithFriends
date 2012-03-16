@@ -6,8 +6,8 @@ describe "Expenses" do
    	let(:user) {Factory(:user)}
 
     it "should have the content 'Listing expenses'" do
-    	visit '/expenses'
-    	page.should have_content('Listing expenses')
+    	user = Factory(:user)
+    	visit login_path
   	end
   end
 end

@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 describe "Payments" do
-  describe "GET /payments" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get payments_index_path
-      response.status.should be(200)
+
+  describe "Payments/index" do
+    it "displays column headers" do
+      user = Factory(:user)
+      visit payments_index_path
+      
     end
   end
 end
