@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: bwf_devlopment
+  pool: 5
+  username: andrewpaulfrank
+  password: 
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: bwf_test
+  pool: 5
+  username: andrewpaulfrank
+  password:
+
+
