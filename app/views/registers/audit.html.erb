@@ -1,59 +1,69 @@
 <h1>Audit for Register <%= @register.id%></h1>
-<p>
-  <b>Id:</b>
-  <%= @register.id %>
-</p>
+<div class="receipt_show">
+  <p>
+    <b>Id:</b>
+    <%= @register.id %>
+  </p>
 
-<p>
-  <b>Creditor:</b>
-  <%= User.find(@register.creditor_id).full_name %>
-</p>
+  <p>
+    <b>Creditor:</b>
+    <%= User.find(@register.creditor_id).full_name %>
+  </p>
 
-<p>
-  <b>Debtor:</b>
-  <%= User.find(@register.debtor_id).full_name %>
-</p>
+  <p>
+    <b>Debtor:</b>
+    <%= User.find(@register.debtor_id).full_name %>
+  </p>
 
-<p>
-  <b>Credit extended:</b>
-  <%= @register.credit_extended %>
-</p>
+  <p>
+    <b>Credit extended:</b>
+    <%= @register.credit_extended %>
+  </p>
 
-<p>
-  <b>Audit:</b>
-  <%= @audit %>
-</p>
+  <p>
+    <b>Audit:</b>
+    <%= @audit %>
+  </p>
 
-<p>
-  <b>Updated at:</b>
-  <%= @register.updated_at %>
-</p>
+  <p>
+    <b>Updated at:</b>
+    <%= @register.updated_at %>
+  </p>
+</div>
 
-<h2>Transactions on this Register</h2>
-<table class="zebra-striped">
-  <tr>
-    <th>Id TESTING ONLY</th>
-    <th>Date</th>
-    <th>Description</th>
-    <th>Amount</th>
-    <th>Creditor</th>
-    <th>Debtor</th>
-    <th></th>
-  </tr>
+<div class="container">
+  <h1>Transactions on this Register</h1>
+  <table class="table table-bordered dotmatrix-striped">
+    <thead>
+      <tr>
+        <th>Id TESTING ONLY</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Creditor</th>
+        <th>Debtor</th>
+        <th></th>
+      </tr>
+    </thead>
 
-<% @sorted_records.each do |record| %>
-  <tr>
-    <td><%= record.id %></td>
-    <td><%= record.created_at.to_date.to_formatted_s(:short) %></td>
-    <% if record.respond_to?(:amount) %>
-      <td><%= "Expense - #{Expense.find(record.expense_id).expense_name}"%></td>
-      <td><%= record.amount %></td>
-    <% end %>
-    <% if record.respond_to?(:total_amount) %>
-      <td><%= "Payment - From #{User.find(record.user_id).first_name} to #{User.find(record.receiver_id).first_name}" %></td>
-      <td><%= record.total_amount*(-1) %></td>
-    <% end %>
-    <td><%= link_to 'Show', record %></td>
-  </tr>
-<% end %>
-</table>
+    <tbody>
+      <% @sorted_records.each do |record| %>
+        <tr>
+          <td><%= record.id %></td>
+          <td><%= record.created_at.to_date.to_formatted_s(:short) %></td>
+          <% if record.respond_to?(:amount) %>
+            <td><%= "Expense - #{Expense.find(record.expense_id).expense_name}"%></td>
+            <td><%= record.amount %></td>
+          <% end %>
+          <% if record.respond_to?(:total_amount) %>
+            <td><%= "Payment - From #{User.find(record.user_id).first_name} to #{User.find(record.receiver_id).first_name}" %></td>
+            <td><%= record.total_amount*(-1) %></td>
+          <% end %>
+          <td><%= User.find(@register.creditor_id).full_name %></td>
+          <td><%= User.find(@register.debtor_id).full_name %></td>
+          <td><%= link_to 'Show', record %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
