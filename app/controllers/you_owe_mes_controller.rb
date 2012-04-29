@@ -35,14 +35,14 @@ class YouOweMesController < ApplicationController
   end
 
   # GET /you_owe_mes/1/edit
-  def edit
-    @you_owe_me = YouOweMe.find(params[:id])
+  #def edit
+    #@you_owe_me = YouOweMe.find(params[:id])
 
-     if @you_owe_me.creditor_id != current_user.id
-      flash[:error] = "You can't edit a debt that you didn't create."
-      redirect_to @you_owe_me
-    end 
-  end
+     #if @you_owe_me.creditor_id != current_user.id
+      #flash[:error] = "You can't edit a debt that you didn't create."
+      #redirect_to @you_owe_me
+    #end 
+  #end
 
   # POST /you_owe_mes
   # POST /you_owe_mes.json
@@ -80,16 +80,16 @@ class YouOweMesController < ApplicationController
 
   # DELETE /you_owe_mes/1
   # DELETE /you_owe_mes/1.json
-  def destroy
-    @you_owe_me = YouOweMe.find(params[:id])
+  #def destroy
+    #@you_owe_me = YouOweMe.find(params[:id])
     
-    if @you_owe_me.creditor_id == current_user.id
-      @you_owe_me.destroy
-      flash[:success] = "You have successfully deleted the debt."
-    else
-      flash[:error] = "You can't delete debts that you didn't create."
-    end
+    #if @you_owe_me.creditor_id == current_user.id
+      #@you_owe_me.destroy
+      #flash[:success] = "You have successfully deleted the debt."
+    #else
+      #flash[:error] = "You can't delete debts that you didn't create."
+    #end
 
-    redirect_to you_owe_me_url
-  end
+    #redirect_to you_owe_me_url
+  #end
 end
