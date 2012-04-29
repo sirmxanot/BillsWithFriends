@@ -27,15 +27,11 @@
           <td><%= expense.created_at.to_date.to_formatted_s(:long)  %></td>
           <td><%= "$#{expense.total_amount}" %></td>
           <td><%= expense.memo %></td>
-          <td><%= link_to 'Show', expense %></td>
+          <td><%= link_to tag("i", :class => 'icon-eye-open'), expense %></td>
           <td><%= edit_decider(expense) %></td>
           <td><%= destroy_decider(expense) %></td>
         </tr>
       <% end %>
       </tbody>
   </table>
-
-  <br />
-
-  <%= link_to 'New Expense', new_expense_path %>
 </div>
