@@ -1,42 +1,44 @@
-<p id="notice"><%= notice %></p>
-<div class="receipt">
+<div class="receipt_show">
 
-  <p>
-    <b>Expense name:</b>
-    <%= @expense.expense_name %>
-  </p>
+  <div class="row-fluid">
+    <h2><%= @expense.expense_name %></h2>
+  </div>
 
-  <p>
+  <div class="row-fluid">
     <b>Owner:</b>
     <%= User.find(@expense.user_id).full_name.capitalize %>
-  </p>
+  </div>
 
-  <p>
+  <div class="row-fluid">
     <b>Date incurred:</b>
     <%= @expense.date_incurred.to_date.to_formatted_s(:long) %>
-  </p>
+  </div>
 
-  <p>
+  <div class="row-fluid">
     <b>Created at:</b>
     <%= @expense.created_at.to_date.to_formatted_s(:long) %>
-  </p>
+  </div>
 
-  <p>
+  <div class="row-fluid">
     <b>Total amount:</b>
     <%= @expense.total_amount %>
-  </p>
+  </div>
 
-  <p>
+  <div class="row-fluid">
     <b>Memo:</b>
     <%= @expense.memo %>
-  </p>
+  </div>
 
-  <ol>
+  <h2>Participants</h2>
+  <div class="row-fluid">
     <% for you_owe_mes in @expense.you_owe_mes %>
-      <li><b> Debtor Name: </b> <%= User.find(you_owe_mes.debtor_id).full_name.capitalize %><b> , Amount: </b> <%= you_owe_mes.amount %></li>
+    <b> Debtor Name: </b> <%= User.find(you_owe_mes.debtor_id).full_name.capitalize %><b> , Amount: </b> <%= you_owe_mes.amount %>
     <% end %>
-  </ol>
+  </div>  
+
+  <div class="row-fluid">
+    <%= link_to 'Edit', edit_expense_path(@expense), :class => "btn btn-primary pull-right" %>
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_expense_path(@expense) %> |
-<%= link_to 'Back', expenses_path %>
+
