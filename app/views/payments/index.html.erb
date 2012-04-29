@@ -1,35 +1,35 @@
-<h1>Listing payments</h1>
-
-<table class="zebra-striped">
-  <tr>
-    <th>Id</th>
-    <th>Owner</th>
-    <th>Receiver</th>
-    <th>Date paid</th>
-    <th>Created at</th>
-    <th>Total amount</th>
-    <th>Memo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @payments.each do |payment| %>
-  <tr>
-    <td><%= payment.id %></td>
-    <td><%= payment.user_id %></td>
-    <td><%= payment.receiver_id %></td>
-    <td><%= payment.date_paid %></td>
-    <td><%= payment.created_at %></td>
-    <td><%= payment.total_amount %></td>
-    <td><%= payment.memo %></td>
-    <td><%= link_to 'Show', payment %></td>
-    <td><%= edit_decider(payment) %></td>
-    <td><%= destroy_decider(payment) %></td>
-  </tr>
-<% end %>
+<h1>Listing Payments</h1>
+<table class="table table-bordered dotmatrix-striped">
+  <thead class="dotmatrix-striped">
+    <tr>
+      <th>Id</th>
+      <th>Owner</th>
+      <th>Receiver</th>
+      <th>Date paid</th>
+      <th>Created at</th>
+      <th>Total amount</th>
+      <th>Memo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @payments.each do |payment| %>
+      <tr>
+        <td><%= payment.id %></td>
+        <td><%= payment.user_id %></td>
+        <td><%= payment.receiver_id %></td>
+        <td><%= payment.date_paid %></td>
+        <td><%= payment.created_at %></td>
+        <td><%= payment.total_amount %></td>
+        <td><%= payment.memo %></td>
+        <td><%= link_to tag("i", :class => 'icon-eye-open'), payment %></td>
+        <td><%= edit_decider(payment) %></td>
+        <td><%= destroy_decider(payment) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Payment', new_payment_path %>
+<%= link_to 'New Payment', new_payment_path, :class => "btn btn-success" %>
