@@ -1,41 +1,38 @@
+<%= devise_error_messages! %>
+<h1>Sign up</h1>
 <div class="container">
-  <div id="error_explanation" class="alert alert-error">
-    <%= devise_error_messages! %>
-  </div>
-  <h1>Sign up</h1>
-    <div class="business_card">
-      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-        
-       	<div class="row-fluid">
-         	<div class="span6 pull-center">
-            <%= f.input :first_name, :label => false, :placeholder => 'First', :input_html => { :class => 'input-medium' }-%>
-          </div>
-          <div class="span6 pull-center">
-            <%= f.input :last_name, :label => false, :placeholder => 'Last', :input_html => { :class => 'input-medium' }-%>
-          </div>
-        </div>
-
-        <div class="row-fluid">
-          <div class="span12">
-        	  <%= f.input :email, :label => false, :placeholder => 'user@domain.com', :input_html => { :class => 'input-xlarge' }-%>
-          </div>
-        </div>
-        
-        <div class="row-fluid">
-          <div class="password span6">
-          	<%= f.input :password, :label => false, :placeholder => 'Password', :input_html => { :class => 'input-medium' }-%>
-          </div>
-          <div class="password span6">
-          	<%= f.input :password_confirmation, :label => false, :placeholder => 'Password Confirmation', :input_html => { :class => 'input-medium' }-%>
-          </div>
-        </div>
-
-        <div class="actions pull-center1">
-        	<%= f.button :submit-%>
-        </div>
-      <% end %>
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    
+   	<div class="row-fluid">
+     	<div class="span3 pull-left">
+        <%= f.input :first_name, :label => false, :placeholder => 'First', :input_html => { :class => 'input-medium' }-%>
+      </div>
+      <div class="span3 pull-left">
+        <%= f.input :last_name, :label => false, :placeholder => 'Last', :input_html => { :class => 'input-medium' }-%>
+      </div>
     </div>
-  </div>
+
+    <div class="row-fluid">
+      <div class="span12">
+    	  <%= f.input :email, :label => false, :placeholder => 'user@domain.com', :input_html => { :class => 'input-xlarge' }-%>
+      </div>
+    </div>
+    
+    <div class="row-fluid">
+      <div class="password span3">
+      	<%= f.input :password, :label => false, :placeholder => 'Password', :input_html => { :class => 'input-medium' }-%>
+      </div>
+      <div class="password span3">
+      	<%= f.input :password_confirmation, :label => false, :placeholder => 'Password Confirmation', :input_html => { :class => 'input-medium' }-%>
+      </div>
+    </div>
+
+    <div class="actions pull-left">
+    	<%= f.button :submit, :class => 'btn-success'-%>
+    </div>
+  <% end %>
+</div>
+
 
   <%= render :partial => "devise/shared/links" %>
 
