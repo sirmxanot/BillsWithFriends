@@ -13,6 +13,8 @@
           = link_to "Ledger", ledger_path
         %li{:class => request.path == expenses_path ? "active" : ""}
           = link_to "Expenses", expenses_path
+        %li{:class => request.path == payments_path ? "active" : ""}
+          = link_to "Payments", payments_path
 
         - if current_user.present?
           %li{:class => request.path == logout_path ? "active" : ""}
