@@ -24,6 +24,10 @@ body {
   background-image: url('/assets/wood_background.jpg');
 }
 
+.bottom-links {
+  margin-top: 30px;
+}
+
 .dotmatrix-striped tbody tr:nth-child(odd) td, .table-striped tbody tr:nth-child(odd) th {
   background-color: #d0e5d6;
 }
@@ -40,6 +44,7 @@ body {
   width: 940px;
   margin-left: auto;
   margin-right: auto;
+   padding: 10px 10px 10px 10px;
   *zoom: 1;
   background-color: #fff;
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
@@ -71,11 +76,21 @@ body {
 }
 .receipt {
   max-width: 365px;
-  min-height: 200px;
-  margin-left: 20px;
+  min-height: 150px;
+  margin-bottom: 30px;
   margin-right: auto;
+  padding: 10px 10px 5px 10px;
   *zoom: 1;
-  padding: 10px;
+  background-color: #FFFEFA;
+}
+
+.receipt_show {
+  max-width: 200px;
+  min-height: 150px;
+  margin-bottom: 30px;
+  margin-right: auto;
+  padding: 10px 10px 10px 10px;
+  *zoom: 1;
   background-color: #FFFEFA;
 }
 
@@ -103,6 +118,7 @@ body {
   line-height: 29px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 30px;
   *zoom: 1;
   outline: double #3737A3;
   outline-offset: -10px;
@@ -180,6 +196,10 @@ body {
   margin-right: auto;
 }
 
+.pull-down {
+  vertical-align: bottom;
+  text-align: bottom;
+}
 
 .form-check .control-label {
   float: left;
@@ -190,6 +210,10 @@ body {
 
 .underline {
 text-decoration: underline;
+}
+
+.white {
+  color: #FFFFFF;
 }
 
 
