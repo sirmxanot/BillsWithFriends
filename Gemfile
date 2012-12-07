@@ -36,12 +36,15 @@ group :development, :test do
 end
 
 group :test do
-	gem 'factory_girl_rails'
-	gem 'capybara', '1.1.2'
-	gem 'guard-rspec'
+  gem "factory_girl_rails", "~> 4.1.0"
+  gem "capybara", "~> 2.0.1"
+  gem "guard-rspec", "~> 2.3.1"
+  gem "rb-inotify", "~> 0.8.8"
+  gem "launchy", "~> 2.1.2"
+  gem "ffaker", "~> 1.15.0"
 
   # Pretty printed test output
-  gem 'turn', '~> 0.8.3', :require => false
+  gem "turn", "~> 0.9.6", :require => false
 end
 
 gem 'devise'
