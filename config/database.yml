@@ -1,9 +1,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: bwf_devlopment
+  database: bwf_development
   pool: 5
-  username: andrewpaulfrank
+  username: postgres
   password: 
 
 test:
@@ -11,7 +11,7 @@ test:
   encoding: unicode
   database: bwf_test
   pool: 5
-  username: andrewpaulfrank
+  username: postgres
   password:
 
 
