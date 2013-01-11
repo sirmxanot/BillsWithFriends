@@ -32,7 +32,7 @@ gem 'capistrano'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :development, :test do
-  gem 'rspec-rails', '2.8.1'
+  gem "rspec-rails", "~> 2.12.0"
 end
 
 group :test do
@@ -50,3 +50,5 @@ end
 gem 'devise'
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 gem 'twitter-bootstrap-rails'
+gem "therubyracer", "~> 0.11.0"
+#gem 'libv8', "~> 3.11.8"

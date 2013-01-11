@@ -47,6 +47,5 @@ describe "Expenses" do
       create_expense
       page.should have_content("Record an Expense")
     end
-
   end
 end

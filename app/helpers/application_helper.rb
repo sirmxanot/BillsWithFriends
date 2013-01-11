@@ -11,7 +11,7 @@ module ApplicationHelper
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
 
-   def bootstrap_type(type)
+  def bootstrap_type(type)
     case type
     when :error
       "alert-error"
