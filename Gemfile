@@ -50,5 +50,3 @@ end
 gem 'devise'
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
 gem 'twitter-bootstrap-rails'
-gem "therubyracer", "~> 0.11.0"
-#gem 'libv8', "~> 3.11.8"

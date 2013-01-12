@@ -5,10 +5,11 @@ FactoryGirl.define do
     total_amount Random.rand(4...99999)
     numb_debtors = Random.rand(1..4)
     after_build do |expense|
-      amount = total_amount Kernal.div() numb_debtors
+      amount = total_amount / numb_debtors 
+      #Kernal.div()
       numb_debtors.times do
-        expense.you_owe_mes << FactoryGirl.create(:you_owe_me, 
-        amount: amount, creditor_id: user_id, expense: expense.id)
+        expense.you_owe_mes << FactoryGirl.build(:you_owe_me, 
+        :amount => amount, :creditor_id => user_id, :expense => expense.id)
       end
     end
   end
