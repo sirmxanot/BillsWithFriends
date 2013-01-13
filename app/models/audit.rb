@@ -1,12 +1,12 @@
 class Audit 
-	def self.audit_math (you_owe_me, payment) 
+	def self.audit_math (you_owe_mes, payments) 
 		audit = 0
 
-		you_owe_me.each do |update_audit|
+		you_owe_mes.each do |update_audit|
       audit += update_audit.amount
     end
     
-    payment.each do |update_audit|
+    payments.each do |update_audit|
       audit -= update_audit.total_amount
     end
     
