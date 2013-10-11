@@ -11,6 +11,5 @@ class Audit
     end
     
     audit 
-  end
-     
+  end 
 end
